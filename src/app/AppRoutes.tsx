@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, } from 'react-router-dom';
 import { ROUTES } from './core/router/paths/routerPaths';
 import RouterScrollToTop from './common/components/Router/RouterScrollToTop';
 import RouterRoute from './common/components/Router/RouterRoute';
