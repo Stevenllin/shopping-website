@@ -1,7 +1,29 @@
-nav {
-  background-color: $color-main-dark;
+button {
+  all: unset;
 }
 
 .logo {
   width: 60px;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.context {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.icons {
+  color: white;
+}
+
+svg.icons {
+  height: 24px !important;
+  width: 24px !important;
 }
