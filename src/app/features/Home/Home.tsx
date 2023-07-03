@@ -1,10 +1,10 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
+import apiService from '../../api/services/apiService';
 
 const Home: React.FC = () => {
   useEffect(() => {
     (async () => {
-      const response = (await axios.get('https://fakestoreapi.com/products/category/jewelery', {}));
+      const response = await apiService.getProducts();
       console.log(response);
     })()
   }, [])
