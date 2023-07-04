@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { initFetchCommonDataAction } from '../../../store/common/actions';
 import Header from '../Header';
 import AsyncSpinner from '../../components/Spinner/AsyncSpinner';
+import ModalCollection from '../../components/Modals/ModalCollection';
 
 const MainLayout: React.FC = (props) => {
   const reduxDispatch = useDispatch();
@@ -20,6 +21,7 @@ const MainLayout: React.FC = (props) => {
       <main>
         {props.children}
       </main>
+      <ModalCollection />
       <AsyncSpinner />
     </>
   )

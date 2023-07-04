@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
-import apiService from '../../api/services/apiService';
+import React from 'react';
 
 const Home: React.FC = () => {
-  useEffect(() => {
-    (async () => {
-      const response = await apiService.getProducts();
-      console.log(response);
-    })()
-  }, [])
   return (
-    <p>Home</p>
+    <div id="home-main-page">Home</div>
   )
 }
 
