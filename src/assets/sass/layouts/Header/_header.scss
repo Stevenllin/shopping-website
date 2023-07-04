@@ -18,3 +18,64 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+
+.menu-bar {
+  background: #348d8f;
+  position: fixed;
+  height: 63px;
+  width: 100%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.menu-bar .context {
+  height: 63px;
+  margin-top: 63px;
+  transition: 0.5s;
+}
+
+.menu-bar ul {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 0;
+}
+
+// .menu-bar li:first-child {
+//   color: #fff;
+//   font-weight: 400;
+//   font-size: 1.25rem;
+// }
+
+.menu-bar li {
+  flex-grow: 1;
+  text-align: center;
+  height: 100%;
+  font-size: 0.875rem;
+  line-height: 3.9375rem;
+}
+
+.menu-bar li.active,
+.menu-bar li:hover {
+  border-bottom: 2px solid #df9a17;
+}
+
+.menu-bar li.active a,
+.menu-bar li:hover a {
+  color: #df9a17;
+  font-weight: 400;
+}
+
+.menu-bar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

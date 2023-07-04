@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/types';
 import { PiShoppingCartSimpleBold } from 'react-icons/pi'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { useDispatch } from 'react-redux';
@@ -6,8 +8,9 @@ import { setModalVisibleAction } from '../../../store/ui/actions';
 import { ModalNamesEnum } from '../../../core/enums/ui/modals';
 
 const Header: React.FC = () => {
-  const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
+  const categories = useSelector((state: RootState) => state.common.category);
   console.log('menuBarActive', menuBarActive);
 
   /**
@@ -47,6 +50,19 @@ const Header: React.FC = () => {
           </div>
         </div>
       </nav>
+      <div className="menu-bar">
+        <div id="menu-bar" className={'container' + (menuBarActive ? ' menu-bar-slide-in' : '')}>
+          <ul>
+            {categories.map((source) => (
+              <li key={source}>
+                <a href="/#">
+                  {source.toUpperCase()}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </header>
   )
 }
