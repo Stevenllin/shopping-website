@@ -11,7 +11,6 @@ const Header: React.FC = () => {
   const dispatch = useDispatch();
   const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
   const categories = useSelector((state: RootState) => state.common.category);
-  console.log('menuBarActive', menuBarActive);
 
   /**
    * @description 處理視窗滾動控制 Menu 顯示/隱藏
@@ -37,7 +36,7 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <nav className="navbar fixed-top">
+      <nav className={'navbar fixed-top navbar-expand' + (menuBarActive ? ' header-nav-slide-out' : '')}>
         <div className="context">
           <img src={require('../../../../assets/img/logo.png')} className='logo' alt='logo' />
           <div className="d-flex">

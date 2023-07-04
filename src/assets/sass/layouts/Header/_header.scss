@@ -8,8 +8,9 @@ nav {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  height: 72px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .navbar > .context {
@@ -19,18 +20,84 @@ nav {
   justify-content: space-between;
 }
 
+.navbar-expand {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.navbar-expand .navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-expand .navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.navbar-expand .navbar-nav-scroll {
+  overflow: visible;
+}
+
+.navbar-expand .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+}
+
+.navbar-expand .navbar-toggler {
+  display: none;
+}
+
+.navbar-expand .offcanvas-header {
+  display: none;
+}
+
+.navbar-expand .offcanvas {
+  position: inherit;
+  bottom: 0;
+  z-index: 1000;
+  flex-grow: 1;
+  visibility: visible !important;
+  background-color: transparent;
+  border-right: 0;
+  border-left: 0;
+  transition: none;
+  transform: none;
+}
+
+.navbar-expand .offcanvas-top,
+.navbar-expand .offcanvas-bottom {
+  height: auto;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.navbar-expand .offcanvas-body {
+  display: flex;
+  flex-grow: 0;
+  padding: 0;
+  overflow-y: visible;
+}
+
+.header-nav-slide-out {
+  transform: translateY(-100%);
+}
+
 .menu-bar {
-  background: #348d8f;
+  background: $color-main-dark;
   position: fixed;
-  height: 63px;
   width: 100%;
   z-index: 100;
   overflow: hidden;
+  height: 72px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .menu-bar .context {
-  height: 63px;
-  margin-top: 63px;
   transition: 0.5s;
 }
 
@@ -44,12 +111,6 @@ nav {
   margin-bottom: 0;
 }
 
-// .menu-bar li:first-child {
-//   color: #fff;
-//   font-weight: 400;
-//   font-size: 1.25rem;
-// }
-
 .menu-bar li {
   flex-grow: 1;
   text-align: center;
@@ -60,17 +121,17 @@ nav {
 
 .menu-bar li.active,
 .menu-bar li:hover {
-  border-bottom: 2px solid #df9a17;
+  border-bottom: 2px solid $color-minor-dark;
 }
 
 .menu-bar li.active a,
 .menu-bar li:hover a {
-  color: #df9a17;
+  color: $color-minor-dark;
   font-weight: 400;
 }
 
 .menu-bar a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-weight: 300;
   display: flex;
