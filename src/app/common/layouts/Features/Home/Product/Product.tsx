@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { ROUTES } from '../../../../../core/router/paths';
 import apiService from '../../../../../api/services/apiService';
 import { GetProductsCategoryResp } from '../../../../../api/models/get/getProductsCategory';
 import { ProductProps } from './types';
 
 const Product: React.FC<ProductProps> = (props) => {
+  const routerHistory = useHistory();
+
   const [products, setProducts] = useState<GetProductsCategoryResp[]>([]);
   /** 
    * @description 取得類別所有商品
@@ -15,6 +19,15 @@ const Product: React.FC<ProductProps> = (props) => {
     })()
   }, [props.category])
 
+  /**
+   * @description 導至商品明細頁
+   * @param productId 商品 Id
+   */
+  const handlePushToDetail = async (productId: number) => {
+    const response = await apiService.getSingleProduct(productId);
+    if (response) routerHistory.push({ pathname: ROUTES.PRODUCT_DETAIL, state: { detail: response } });
+  }
+
   return (
     <section id={props.category} className="content-section">
       <div className="context">
@@ -23,10 +36,10 @@ const Product: React.FC<ProductProps> = (props) => {
           {
             products.map((product) => (
               <div className="product" key={product.id}>
-                <img src={product.image} alt={product.title} height={300} width={300} loading="lazy" />
+                <img src={product.image} alt={product.title} height={300} width={300} loading="lazy" onClick={() => handlePushToDetail(product.id)} />
                 <p>{product.title}</p>
                 <div className="d-flex justify-content-around">
-                  <p>{product.price}</p>
+                  <p className="m-0">{product.price}</p>
                   <button type="button">Add to cart</button>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GetProductsCategoryResp } from '../models/get/getProductsCategory';
+import { GetSingleProductResp } from '../models/get/getSingleProduct';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -17,5 +18,10 @@ export default {
   getProductsCategory: async (args: string) => {
     const argsModel = {}
     return axios.get<GetProductsCategoryResp[]>(`/products/category/${args}`, argsModel).then((response) => response.data)
+  },
+  /** 根據 productId 查詢單一商品 */
+  getSingleProduct: async(args: number) => {
+    const argsModel = {}
+    return axios.get<GetSingleProductResp>(`products/${args}`, argsModel).then((response) => response.data)
   }
 }

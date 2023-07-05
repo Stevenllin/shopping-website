@@ -11,9 +11,14 @@
     overflow: hidden;
     padding: 0.5rem;
     z-index: 1;
+    cursor: pointer;
 
-    p {
+    & > p {
       margin-top: 25px;
+      padding: 1rem;
+      min-height: 80px;
+      box-shadow: 0 4px 16px hsla(0, 0%, 49%, 0.08);
+      border-radius: 25px;
     }
 
     button {
@@ -26,17 +31,6 @@
       width: 100%;
       object-fit: cover;
     }
-  }
-
-  .product::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: 0.5s ease all;
   }
 
   .product:hover img {
