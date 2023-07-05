@@ -13,7 +13,7 @@ const IndexShowcase: React.FC = () => {
             <ul>
               {
                 categories.map((category) => (
-                  <li id={category}>
+                  <li key={category}>
                     {category.toUpperCase()}
                   </li>
                 ))

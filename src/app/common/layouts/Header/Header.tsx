@@ -9,7 +9,9 @@ import { ModalNamesEnum } from '../../../core/enums/ui/modals';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
+  /** 啟用/關閉 menu bar */
   const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
+  /** 取得所有的類別 */
   const categories = useSelector((state: RootState) => state.common.category);
 
   /**

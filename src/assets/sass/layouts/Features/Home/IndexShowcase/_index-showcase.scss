@@ -1,7 +1,7 @@
 .index-showcase {
   position: relative;
   display: block;
-  height: 600px;
+  height: 650px;
   background-image: url("https://fakestoreapi.com/icons/intro.svg");
   background-position: left;
   background-repeat: no-repeat;
@@ -41,20 +41,6 @@
 
 .menu li.active,
 .menu li:hover {
-  border-bottom: 2px solid #df9a17;
-}
-
-.menu li.active a,
-.menu li:hover a {
-  color: #df9a17;
-}
-
-.menu a {
-  color: white !important;
-  text-decoration: none;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+  color: $color-minor-dark;
+  font-weight: bold;
 }
