@@ -32,15 +32,16 @@
   margin-bottom: 0;
 }
 
-.menu li {
+.menu li a {
   flex-grow: 1;
   text-align: center;
+  color: $color-main-dark;
   height: 100%;
   line-height: 3.4375rem;
 }
 
 .menu li.active,
-.menu li:hover {
+.menu li:hover a {
   color: $color-minor-dark;
   font-weight: bold;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import commonService from '../../../../../core/services/commonService';
 import { RootState } from '../../../../../store/types';
 
 const IndexShowcase: React.FC = () => {
@@ -14,7 +15,9 @@ const IndexShowcase: React.FC = () => {
               {
                 categories.map((category) => (
                   <li key={category}>
-                    {category.toUpperCase()}
+                    <a href="/#" onClick={(event) => commonService.handleWindowScrollToTargetSection(event, category)}>
+                      {category.toUpperCase()}
+                    </a>
                   </li>
                 ))
               }

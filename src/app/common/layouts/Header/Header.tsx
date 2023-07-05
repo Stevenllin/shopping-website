@@ -6,6 +6,7 @@ import { BsFillPersonFill } from 'react-icons/bs'
 import { useDispatch } from 'react-redux';
 import { setModalVisibleAction } from '../../../store/ui/actions';
 import { ModalNamesEnum } from '../../../core/enums/ui/modals';
+import commonService from '../../../core/services/commonService';
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const Header: React.FC = () => {
           <ul>
             {categories.map((source) => (
               <li key={source}>
-                <a href="/#">
+                <a href="/#" onClick={(event) => commonService.handleWindowScrollToTargetSection(event, source)}>
                   {source.toUpperCase()}
                 </a>
               </li>

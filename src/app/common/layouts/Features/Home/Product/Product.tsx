@@ -18,7 +18,7 @@ const Product: React.FC<ProductProps> = (props) => {
   return (
     <section id={props.category} className="content-section">
       <div className="context">
-        <h3 className="text-center">{props.category.toUpperCase()}</h3>
+        <h3 className="text-center section-title">{props.category.toUpperCase()}</h3>
         <div className="product-container">
           {
             products.map((product) => (
