@@ -18,27 +18,33 @@ const ProductDetail: React.FC = () => {
 
   return (
     <div id="product-detail">
-      <div className="context">
-        <div className="row">
-          <div className="col-md-6">
-            <img src={detail.image} alt={detail.title} loading="lazy" style={{ width: '100%' }} />
+      <div className="context content-section">
+        <div className="row mb-3">
+          <div className="col-md-6 d-flex align-item-center justify-content-center h-100">
+            <img src={detail.image} alt={detail.title} loading="lazy" style={{ width: '70%', height: '70%' }} />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 product-detail--container h-100">
             {/** Title */}
             <h3>{detail.title}</h3>
             {/** Category */}
-            <h6>Category</h6>
+            <h4>Category</h4>
             <p>{detail.category.toUpperCase()}</p>
             {/** Description */}
-            <h6>Description:</h6>
+            <h4>Description:</h4>
             <p>{detail.description}</p>
             {/** Count */}
-            <h6>Description:</h6>
+            <h4>Count:</h4>
             <p>{detail.rating.count}</p>
             {/** Rating */}
-            <h6>Rate:</h6>
+            <h4>Rate:</h4>
             <p>{detail.rating.rate}</p>
+            {/** Price */}
+            <h4>Price:</h4>
+            <p>{detail.price}</p>
           </div>
+        </div>
+        <div className="d-flex justify-content-end">
+          <button type="button" className="button-main">Add to cart</button>
         </div>
       </div>
     </div>
