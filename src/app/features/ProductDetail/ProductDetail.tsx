@@ -7,7 +7,6 @@ const ProductDetail: React.FC = () => {
   const routerLocation = useLocation<RouteLocationState>();
   const routerHistory = useHistory();
   const detail = routerLocation.state?.detail ?? undefined;
-  console.log('detail', detail);
 
   /** 
    * @description 若沒有 detail 重新返回首頁

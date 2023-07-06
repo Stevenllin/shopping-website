@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GetProductsCategoryResp } from '../models/get/getProductsCategory';
 import { GetSingleProductResp } from '../models/get/getSingleProduct';
+import { PostAuthLoginReq, PostAuthLoginResp } from '../models/post/postAuthLogin';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -20,13 +21,17 @@ export default {
     return axios.get<GetProductsCategoryResp[]>(`/products/category/${args}`, argsModel).then((response) => response.data)
   },
   /** 根據 productId 查詢單一商品 */
-  getSingleProduct: async(args: number) => {
+  getSingleProduct: async (args: number) => {
     const argsModel = {}
     return axios.get<GetSingleProductResp>(`products/${args}`, argsModel).then((response) => response.data)
   },
   /** 根據 userId 查詢使用者的購物車內容 */
-  getCartsUser: async(args: number) => {
+  getCartsUser: async (args: number) => {
     const argsModel = {}
     return axios.get(`/carts/user/${args}`, argsModel).then((response) => response.data)
+  },
+  /** 提供使用者進行登入 */
+  postAuthLogin: async (args: PostAuthLoginReq) => {
+    return axios.post<PostAuthLoginResp>('/auth/login', args).then((response) => response.data); 
   }
 }

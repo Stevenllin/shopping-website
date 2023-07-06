@@ -8,10 +8,10 @@ import { initFetchCommonDataDoneAction } from './actions';
  * @description 初始取得系統共用選項資料
  */
 function * initFetchCommonData () {
-  // const response: string[] = yield call(apiService.getAllCategories);
-  // yield put(initFetchCommonDataDoneAction({
-  //   category: response
-  // }))
+  const response: string[] = yield call(apiService.getAllCategories);
+  yield put(initFetchCommonDataDoneAction({
+    category: response
+  }))
 }
 
 export default function * watchCommonSaga () {
