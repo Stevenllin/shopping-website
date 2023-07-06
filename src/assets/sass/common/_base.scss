@@ -45,11 +45,12 @@ svg.icons {
 }
 
 .button-main {
-  padding: 1rem;
-  min-width: 150px;
+  padding: 0.8rem;
+  min-width: 120px;
   color: white;
   background-color: $color-minor-dark;
+  border-color: $color-minor-dark;
   text-align: center;
   font-size: 1.2rem;
-  border-radius: 15px;
+  border-radius: 10px;
 }

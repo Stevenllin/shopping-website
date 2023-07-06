@@ -4,8 +4,9 @@ import { InputTextFieldProps } from './types';
 
 const InputTextField: React.FC<InputTextFieldProps> = ({ name, label, type, disabled, placeholder }) => {
   const [field, meta, helper] = useField(name);
+  console.log('meta', meta);
   return (
-    <div className={`field ${meta.error && meta.touched ? 'field__invalid' : ''}`}>
+    <div className={`field ${meta.error && meta.touched ? ' field__invalid' : ''}`}>
       <div className="field__title">{label.toUpperCase()}</div>
       <div className="field__body">
         <input

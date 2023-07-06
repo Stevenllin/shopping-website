@@ -1,7 +1,8 @@
 .field {
   width: 100%;
-  font-size: 1.25rem;
+  padding: 0.2rem;
   margin: 15px 0px;
+  font-size: 1.25rem;
   &__title {
     margin: 3px 0;
     font-weight: bold;
@@ -25,16 +26,16 @@
     }
   }
   &__error-message {
-    color: red;
+    color: $color-danger;
   }
   &__invalid {
     .field__title {
-      color: red;
+      color: $color-danger;
     }
-    .field__input {
-      border-color: red;
+    .field__body input {
+      border-color: $color-danger;
       &:focus {
-        box-shadow: 0 0 0 0.2rem rgba(red, 0.2);
+        box-shadow: 0 0 0 0.2rem rgba($color-danger, 0.2);
       }
     }
     .field__error-message {

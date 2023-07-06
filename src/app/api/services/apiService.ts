@@ -23,5 +23,10 @@ export default {
   getSingleProduct: async(args: number) => {
     const argsModel = {}
     return axios.get<GetSingleProductResp>(`products/${args}`, argsModel).then((response) => response.data)
+  },
+  /** 根據 userId 查詢使用者的購物車內容 */
+  getCartsUser: async(args: number) => {
+    const argsModel = {}
+    return axios.get(`/carts/user/${args}`, argsModel).then((response) => response.data)
   }
 }
