@@ -80,7 +80,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100px;
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
@@ -336,7 +335,7 @@
   font-weight: 400;
   font-size: 1.875rem;
   line-height: 2.25rem;
-  color: #348d8f;
+  color: $color-main-dark;
 }
 
 .modal-content {
@@ -368,9 +367,9 @@
 }
 
 .modal-body::-webkit-scrollbar-thumb {
-  background-color: #348d8f;
+  background-color: $color-main-dark;
   border-radius: 20px;
-  border: 3px solid #348d8f;
+  border: 3px solid $color-main-dark;
 }
 
 .modal-footer {
@@ -380,7 +379,7 @@
 
 .small-modal h2,
 .small-modal .h2 {
-  color: #348d8f;
+  color: $color-main-dark;
   font-size: 1.5rem;
   line-height: 1.75rem;
 }
@@ -428,9 +427,9 @@
     width: 4px;
   }
   .modal-body::-webkit-scrollbar-thumb {
-    background-color: #348d8f;
+    background-color: $color-main-dark;
     border-radius: 20px;
-    border: 3px solid #348d8f;
+    border: 3px solid $color-main-dark;
   }
 }
 
