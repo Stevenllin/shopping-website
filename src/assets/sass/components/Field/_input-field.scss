@@ -1,0 +1,50 @@
+.field {
+  width: 100%;
+  font-size: 1.25rem;
+  margin: 15px 0px;
+  &__title {
+    margin: 3px 0;
+    font-weight: bold;
+    color: $color-main-normal;
+  }
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      border-radius: 8px;
+      border-color: $color-main-normal;
+      background-color: $color-main-light !important;
+
+      &:focus {
+        outline: none !important;
+        border-color: $color-main-dark !important;
+      }
+    }
+  }
+  &__error-message {
+    color: red;
+  }
+  &__invalid {
+    .field__title {
+      color: red;
+    }
+    .field__input {
+      border-color: red;
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(red, 0.2);
+      }
+    }
+    .field__error-message {
+      span {
+        display: block;
+      }
+    }
+  }
+  &__input-text {
+    width: 100%;
+    padding: 0.8rem 0.6rem;
+  }
+}
