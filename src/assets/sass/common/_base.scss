@@ -6,12 +6,21 @@ a {
   text-decoration: none !important;
 }
 
-.logo {
-  width: 60px;
-}
-
 p {
   color: #565250;
+}
+
+svg.icons {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.color-main-normal {
+  color: $color-main-normal;
+}
+
+.logo {
+  width: 60px;
 }
 
 .fixed-top {
@@ -29,11 +38,6 @@ p {
 
 .icons {
   color: white;
-}
-
-svg.icons {
-  height: 24px !important;
-  width: 24px !important;
 }
 
 .content-section {

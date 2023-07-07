@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/types';
 import { PiShoppingCartSimpleBold } from 'react-icons/pi'
-import { BsFillPersonFill } from 'react-icons/bs'
+import { BsFillPersonFill } from 'react-icons/bs';
+import { AiOutlineLogout } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { setModalVisibleAction } from '../../../store/ui/actions';
 import { ModalNamesEnum } from '../../../core/enums/ui/modals';
@@ -17,6 +18,8 @@ const Header: React.FC = () => {
   const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
   /** 取得所有的類別 */
   const categories = useSelector((state: RootState) => state.common.category);
+  /** 取得使用者 token */
+  const authState = useSelector((state: RootState) => state.features.login.token);
 
   /**
    * @description 處理視窗滾動控制 Menu 顯示/隱藏
@@ -47,9 +50,20 @@ const Header: React.FC = () => {
         <div className="context">
           <img src={require('../../../../assets/img/logo.png')} className='logo' alt='logo' />
           <div className="d-flex">
-            <button type="button" className="me-3">
-              <BsFillPersonFill className="icons" onClick={handleOpenLoginModal} />
-            </button>
+            {
+              authState === '' && (
+                <button type="button" className="me-3">
+                  <BsFillPersonFill className="icons" onClick={handleOpenLoginModal} />
+                </button>
+              )
+            }
+            {
+              authState !== '' && (
+                <button type="button" className="me-3" onClick={commonService.handleExecuteLogout}>
+                  <AiOutlineLogout className="icons" />
+                </button>
+              )
+            }
             <button type="button">
               <PiShoppingCartSimpleBold className="icons" />
             </button>

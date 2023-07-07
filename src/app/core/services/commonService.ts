@@ -1,3 +1,5 @@
+import { StorageKeysEnum } from '../enums/storage';
+import storageService from './storageService';
 /**
  * @description 處理視窗滾動至目標 Section
  * @param event event object
@@ -24,7 +26,22 @@ const handleWindowScrollToTargetSection = (event: React.SyntheticEvent | null, s
   }
 }
 
+/** 
+ * @description 執行 Logout
+ */
+const handleExecuteLogout = () => {
+  /** 取得 token */
+  const token = storageService.getItem(StorageKeysEnum.Authorization);
+  if (token) {
+    /** 移除 token */
+    storageService.removeItem(StorageKeysEnum.Authorization)
+    /** 重新整理頁面 */
+    window.location.reload()
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  handleWindowScrollToTargetSection
+  handleWindowScrollToTargetSection,
+  handleExecuteLogout
 }
