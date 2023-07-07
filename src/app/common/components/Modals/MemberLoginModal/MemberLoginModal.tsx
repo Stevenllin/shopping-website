@@ -27,7 +27,6 @@ const MemberLoginModal: React.FC<MemberLoginModalProps> = (props) => {
       password: Yup.string().required()
     }),
     onSubmit: async (formValues) => {
-      console.log('test')
       reduxDispatch(executeLogin(formValues.username, formValues.password))
     }
   });
