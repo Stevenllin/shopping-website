@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GetProductsCategoryResp } from '../models/get/getProductsCategory';
 import { GetSingleProductResp } from '../models/get/getSingleProduct';
 import { PostAuthLoginReq, PostAuthLoginResp } from '../models/post/postAuthLogin';
+import { GetUsersResp } from '../models/get/getUsers';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -33,5 +34,9 @@ export default {
   /** 提供使用者進行登入 */
   postAuthLogin: async (args: PostAuthLoginReq) => {
     return axios.post<PostAuthLoginResp>('/auth/login', args).then((response) => response.data); 
+  },
+  /** 查詢所有使用者資訊 */
+  getUsers: async () => {
+    return axios.get<GetUsersResp[]>('/users').then((response) => response.data);
   }
 }

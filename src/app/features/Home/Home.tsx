@@ -7,14 +7,13 @@ import { RootState } from '../../store/types';
 const Home: React.FC = () => {
   /** 取得所有的類別 */
   const categories = useSelector((state: RootState) => state.common.category);
-
   return (
     <div id="home-main-page">
       {/** 主視覺 Section */}
       <IndexShowcase />
       {/** 商品 Section */}
       {
-        categories.map((category) => (
+        categories.length > 0 && categories.map((category) => (
           <Product key={category} category={category} />
         ))
       }
