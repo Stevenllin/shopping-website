@@ -5,5 +5,7 @@ export enum ModalNamesEnum {
   /** 閒置 */
   IdleModal = 'idleModal',
   /** 會員中心-會員登入 */
-  MemberLoginModal = 'memberLoginModal'
+  MemberLoginModal = 'memberLoginModal',
+  /** 共用提醒 */
+  RemindModal = 'remindModal'
 };

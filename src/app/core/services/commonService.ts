@@ -1,5 +1,10 @@
 import { StorageKeysEnum } from '../enums/storage';
+import { GetSingleProductResp } from '../../api/models/get/getSingleProduct';
 import storageService from './storageService';
+import store from '../../store';
+import { ModalNamesEnum } from '../enums/ui/modals';
+import { setModalVisibleAction } from '../../store/ui/actions';
+
 /**
  * @description 處理視窗滾動至目標 Section
  * @param event event object
@@ -26,6 +31,16 @@ const handleWindowScrollToTargetSection = (event: React.SyntheticEvent | null, s
   }
 }
 
+/**
+ * @description 加入購物車
+ * 
+ */
+const handleAddProductToCart = (product: GetSingleProductResp) => {
+  const auth = storageService.getItem(StorageKeysEnum.Authorization);
+  console.log(auth);
+  if (!auth) store.dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
+}
+
 /** 
  * @description 執行 Logout
  */
@@ -45,5 +60,6 @@ const handleExecuteLogout = () => {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   handleWindowScrollToTargetSection,
-  handleExecuteLogout
+  handleExecuteLogout,
+  handleAddProductToCart
 }

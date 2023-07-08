@@ -15,6 +15,7 @@ interface SpinnersState {
 
 interface ModalState {
   memberLoginModalVisible: boolean;
+  remindModalVisible: boolean;
 }
 
 /** UI 相關 Action */

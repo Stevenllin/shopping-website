@@ -15,7 +15,8 @@ const initialState: UIState = {
     }
   },
   modals: {
-    memberLoginModalVisible: false
+    memberLoginModalVisible: false,
+    remindModalVisible: false
   }
 };
 

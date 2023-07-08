@@ -53,19 +53,19 @@ const Header: React.FC = () => {
             {
               authState === '' && (
                 <button type="button" className="me-3">
-                  <BsFillPersonFill className="icons" onClick={handleOpenLoginModal} />
+                  <BsFillPersonFill className="icons-white icons-sm" onClick={handleOpenLoginModal} />
                 </button>
               )
             }
             {
               authState !== '' && (
                 <button type="button" className="me-3" onClick={commonService.handleExecuteLogout}>
-                  <AiOutlineLogout className="icons" />
+                  <AiOutlineLogout className="icons-white icons-sm" />
                 </button>
               )
             }
             <button type="button">
-              <PiShoppingCartSimpleBold className="icons" />
+              <PiShoppingCartSimpleBold className="icons-white icons-sm" />
             </button>
           </div>
         </div>

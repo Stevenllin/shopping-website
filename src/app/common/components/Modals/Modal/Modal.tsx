@@ -50,12 +50,12 @@ const Modal: React.FC<ModalProps> = (props) => {
             <div className="modal-footer">
               <div className="m-auto">
                 {props.confirmBtnText && (
-                  <button className="btn btn-primary w-100 external-link-button" onClick={handleConfirm}>
+                  <button className="button-main" onClick={handleConfirm}>
                     {props.confirmBtnText}
                   </button>
                 )}
                 {props.cancelBtnText && (
-                  <button className="btn btn-primary w-100 external-link-button" onClick={handleClose}>
+                  <button className="" onClick={handleClose}>
                     {props.cancelBtnText}
                   </button>
                 )}

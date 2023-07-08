@@ -10,9 +10,24 @@ p {
   color: #565250;
 }
 
-svg.icons {
+.icons-sm {
   height: 24px !important;
   width: 24px !important;
+}
+
+.icons-md {
+  height: 36px !important;
+  width: 36px !important;
+}
+
+.icons-lg {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.icons-xl {
+  height: 64px !important;
+  width: 64px !important;
 }
 
 .color-main-normal {
@@ -36,8 +51,12 @@ svg.icons {
   margin: 0 auto;
 }
 
-.icons {
+.icons-white {
   color: white;
+}
+
+.icons-main-dark {
+  color: $color-main-dark;
 }
 
 .content-section {

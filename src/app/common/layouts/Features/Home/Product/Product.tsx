@@ -4,6 +4,7 @@ import { ROUTES } from '../../../../../core/router/paths';
 import apiService from '../../../../../api/services/apiService';
 import { GetProductsCategoryResp } from '../../../../../api/models/get/getProductsCategory';
 import { ProductProps } from './types';
+import commonService from '../../../../../core/services/commonService';
 
 const Product: React.FC<ProductProps> = (props) => {
   const routerHistory = useHistory();
@@ -40,7 +41,7 @@ const Product: React.FC<ProductProps> = (props) => {
                 <p>{product.title}</p>
                 <div className="d-flex justify-content-around">
                   <p className="m-0">{product.price}</p>
-                  <button type="button">Add to cart</button>
+                  <button type="button" onClick={() => commonService.handleAddProductToCart(product)}>Add to cart</button>
                 </div>
               </div>
             ))
