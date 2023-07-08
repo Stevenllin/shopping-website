@@ -4,6 +4,8 @@
 export enum StorageKeysEnum {
   /** 登入授權 (Access Token) */
   Authorization = 'authorization',
-  /** Username */
-  Username = 'username'
+  /** 使用者 Username */
+  Username = 'username',
+  /** 購物車 Cart */
+  Cart = 'cart'
 };

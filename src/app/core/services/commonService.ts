@@ -37,7 +37,6 @@ const handleWindowScrollToTargetSection = (event: React.SyntheticEvent | null, s
  */
 const handleAddProductToCart = (product: GetSingleProductResp) => {
   const auth = storageService.getItem(StorageKeysEnum.Authorization);
-  console.log(auth);
   if (!auth) store.dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
 }
 

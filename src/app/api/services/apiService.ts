@@ -3,6 +3,7 @@ import { GetProductsCategoryResp } from '../models/get/getProductsCategory';
 import { GetSingleProductResp } from '../models/get/getSingleProduct';
 import { PostAuthLoginReq, PostAuthLoginResp } from '../models/post/postAuthLogin';
 import { GetUsersResp } from '../models/get/getUsers';
+import { GetCartsUserResp } from '../models/get/getCartsUser';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -29,7 +30,7 @@ export default {
   /** 根據 userId 查詢使用者的購物車內容 */
   getCartsUser: async (args: number) => {
     const argsModel = {}
-    return axios.get(`/carts/user/${args}`, argsModel).then((response) => response.data)
+    return axios.get<GetCartsUserResp[]>(`/carts/user/${args}`, argsModel).then((response) => response.data)
   },
   /** 提供使用者進行登入 */
   postAuthLogin: async (args: PostAuthLoginReq) => {
