@@ -13,8 +13,6 @@ const MainLayout: React.FC = (props) => {
   const reduxDispatch = useDispatch();
   const username = storageService.getItem(StorageKeysEnum.Username);
   const member = useSelector((state: RootState) => state.common.member);
-  const carts = useSelector((state: RootState) => state.features.cart);
-  console.log('carts', carts)
 
   /**
    * @description 組件初始化後執行的 Effect

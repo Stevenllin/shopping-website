@@ -5,7 +5,7 @@ import { CartState, CartActions, EXECUTE__INIT_CART__DONE } from './types';
 
 /** 初始購物車 State */
 const initialState: CartState = {
-  products: storageService.getItem(StorageKeysEnum.Cart) ?? null
+  products: JSON.parse(storageService.getItem(StorageKeysEnum.Cart)) ?? null
 }
 
 const cartReducer: Reducer<CartState, CartActions> = (state = initialState, action): CartState => {

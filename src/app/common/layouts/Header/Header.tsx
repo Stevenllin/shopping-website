@@ -16,10 +16,14 @@ const Header: React.FC = () => {
   const dispatch = useDispatch();
   /** 啟用/關閉 menu bar */
   const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
+  /** 購物車數量 */
+  const [productsCount, setProductsCount] = useState<number>(0);
   /** 取得所有的類別 */
   const categories = useSelector((state: RootState) => state.common.category);
   /** 取得使用者 token */
   const authState = useSelector((state: RootState) => state.features.login.token);
+  /** 取得使用者購物車 */
+  const carts = useSelector((state: RootState) => state.features.cart.products);
 
   /**
    * @description 處理視窗滾動控制 Menu 顯示/隱藏
@@ -36,6 +40,16 @@ const Header: React.FC = () => {
     });
   }, []);
 
+  /**
+   * @description 計算購物車數量
+   */
+  useEffect(() => {
+    if (carts) {
+      const counts: number = carts.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0)
+      setProductsCount(counts)
+    }
+  }, [carts])
+
   /** 
    * @description 開啟「會員登入」Modal
    */
@@ -49,7 +63,8 @@ const Header: React.FC = () => {
       <nav className={'navbar fixed-top navbar-expand' + (menuBarActive ? ' header-nav-slide-out' : '')}>
         <div className="context">
           <img src={require('../../../../assets/img/logo.png')} className='logo' alt='logo' />
-          <div className="d-flex">
+          <div className="d-flex header-icons-container">
+            {/** 登入 icons */}
             {
               authState === '' && (
                 <button type="button" className="me-3">
@@ -57,6 +72,7 @@ const Header: React.FC = () => {
                 </button>
               )
             }
+            {/** 登出 icons */}
             {
               authState !== '' && (
                 <button type="button" className="me-3" onClick={commonService.handleExecuteLogout}>
@@ -64,9 +80,18 @@ const Header: React.FC = () => {
                 </button>
               )
             }
+            {/** 購物車 icons */}
             <button type="button">
               <PiShoppingCartSimpleBold className="icons-white icons-sm" />
             </button>
+            {/** 購物車數量 */}
+            {
+              authState !== '' && (
+                <div className="header-cart">
+                  <span>{productsCount}</span>
+                </div>
+              )
+            }
           </div>
         </div>
       </nav>

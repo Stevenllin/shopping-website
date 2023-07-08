@@ -78,3 +78,24 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
+.header-icons-container {
+  position: relative;
+  padding: 1rem;
+}
+
+.header-cart {
+  position: absolute;
+  right: -5px;
+  top: 0;
+  padding: 0.25rem;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: $color-minor-dark;
+  border-radius: 50%;
+}
