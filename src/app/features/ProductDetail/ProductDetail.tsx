@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../core/router/paths';
+import commonService from '../../core/services/commonService';
 import { RouteLocationState } from './types';
 
 const ProductDetail: React.FC = () => {
@@ -31,19 +32,16 @@ const ProductDetail: React.FC = () => {
             {/** Description */}
             <h4>Description:</h4>
             <p>{detail.description}</p>
-            {/** Count */}
-            <h4>Count:</h4>
-            <p>{detail.rating.count}</p>
             {/** Rating */}
             <h4>Rate:</h4>
-            <p>{detail.rating.rate}</p>
+            <p>{detail.rating.rate} (Count: {detail.rating.count})</p>
             {/** Price */}
             <h4>Price:</h4>
-            <p>{detail.price}</p>
+            <p>$ {detail.price}</p>
           </div>
         </div>
         <div className="d-flex justify-content-end">
-          <button type="button" className="button-main">Add to cart</button>
+          <button type="button" className="button-main" onClick={() => commonService.handleAddProductToCart(detail)}>Add to cart</button>
         </div>
       </div>
     </div>
