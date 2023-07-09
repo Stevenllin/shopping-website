@@ -76,4 +76,9 @@ p {
   text-align: center;
   font-size: 1.2rem;
   border-radius: 10px;
+
+  &:hover {
+    border-color: #efa028;
+    background-color: #efa028;
+  }
 }

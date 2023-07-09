@@ -39,9 +39,9 @@ const Product: React.FC<ProductProps> = (props) => {
               <div className="product" key={product.id}>
                 <img src={product.image} alt={product.title} height={300} width={300} loading="lazy" onClick={() => handlePushToDetail(product.id)} />
                 <p>{product.title}</p>
-                <div className="d-flex justify-content-around">
-                  <p className="m-0">{product.price}</p>
-                  <button type="button" onClick={() => commonService.handleAddProductToCart(product)}>Add to cart</button>
+                <div className="d-flex justify-content-between align-items-center">
+                  <p className="m-0 fs-5">$ {product.price}</p>
+                  <button type="button" className="button-main" onClick={() => commonService.handleAddProductToCart(product)}>Add to cart</button>
                 </div>
               </div>
             ))
