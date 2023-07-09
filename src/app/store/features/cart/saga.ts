@@ -5,8 +5,6 @@ import { GetCartsUserResp, Product } from '../../../api/models/get/getCartsUser'
 import { ExecuteInitCartAction, ExecuteAddProductAction, EXECUTE__INIT_CART, EXECUTE__ADD_PRODUCT } from './types';
 import { executeInitCartDoneAction } from './actions';
 import apiService from '../../../api/services/apiService';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../types';
 import { executeAddProductCartDoneAction } from './actions';
 
 
@@ -30,11 +28,13 @@ function* executeInitCart(action: ExecuteInitCartAction) {
 }
 
 /**
- * @description 將商品加入購物車（待調整）
+ * @description 將商品加入購物車
  */
 function* executeAddProduct(action: ExecuteAddProductAction) {
   const carts: Product[] = JSON.parse(storageService.getItem(StorageKeysEnum.Cart));
+  /** 判斷商品是否已存在購物車 */
   let flag = false
+  /** 若存在，在已有的購物車商品的數量 + 1 */
   const cartsUpdated: Product[] = carts.map((product: Product) => {
     if (product.productId === action.payload.response.id) {
       flag = true
@@ -43,10 +43,11 @@ function* executeAddProduct(action: ExecuteAddProductAction) {
       return { ...product }
     }
   })
+  /** 若不存在，則 Push 一筆新商品 */
   if (!flag) cartsUpdated.push({ productId: action.payload.response.id, quantity: 1 })
-  
   /** 記得更新購物車 */
   yield put(executeAddProductCartDoneAction(cartsUpdated))
+  /** 儲存至 LocalStorage */
   storageService.setItem(StorageKeysEnum.Cart, JSON.stringify(cartsUpdated))
 }
 

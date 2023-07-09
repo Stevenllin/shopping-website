@@ -24,6 +24,7 @@ const Header: React.FC = () => {
   const authState = useSelector((state: RootState) => state.features.login.token);
   /** 取得使用者購物車 */
   const carts = useSelector((state: RootState) => state.features.cart.products);
+  console.log('carts', carts);
 
   /**
    * @description 處理視窗滾動控制 Menu 顯示/隱藏
