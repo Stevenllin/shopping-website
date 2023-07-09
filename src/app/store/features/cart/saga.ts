@@ -5,6 +5,9 @@ import { GetCartsUserResp, Product } from '../../../api/models/get/getCartsUser'
 import { ExecuteInitCartAction, ExecuteAddProductAction, EXECUTE__INIT_CART, EXECUTE__ADD_PRODUCT } from './types';
 import { executeInitCartDoneAction } from './actions';
 import apiService from '../../../api/services/apiService';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../types';
+import { executeAddProductCartDoneAction } from './actions';
 
 
 /**
@@ -30,7 +33,21 @@ function* executeInitCart(action: ExecuteInitCartAction) {
  * @description 將商品加入購物車（待調整）
  */
 function* executeAddProduct(action: ExecuteAddProductAction) {
-  const current: Product[] = storageService.getItem(StorageKeysEnum.Cart);
+  const carts: Product[] = JSON.parse(storageService.getItem(StorageKeysEnum.Cart));
+  let flag = false
+  const cartsUpdated: Product[] = carts.map((product: Product) => {
+    if (product.productId === action.payload.response.id) {
+      flag = true
+      return { ...product, quantity: product.quantity + 1 }
+    } else {
+      return { ...product }
+    }
+  })
+  if (!flag) cartsUpdated.push({ productId: action.payload.response.id, quantity: 1 })
+  
+  /** 記得更新購物車 */
+  yield put(executeAddProductCartDoneAction(cartsUpdated))
+  storageService.setItem(StorageKeysEnum.Cart, JSON.stringify(cartsUpdated))
 }
 
 export default function * watchCartSaga () {

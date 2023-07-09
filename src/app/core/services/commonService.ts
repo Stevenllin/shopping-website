@@ -4,6 +4,7 @@ import storageService from './storageService';
 import store from '../../store';
 import { ModalNamesEnum } from '../enums/ui/modals';
 import { setModalVisibleAction } from '../../store/ui/actions';
+import { executeAddProductCartAction } from '../../store/features/cart/actions';
 
 /**
  * @description 處理視窗滾動至目標 Section
@@ -37,7 +38,12 @@ const handleWindowScrollToTargetSection = (event: React.SyntheticEvent | null, s
  */
 const handleAddProductToCart = (product: GetSingleProductResp) => {
   const auth = storageService.getItem(StorageKeysEnum.Authorization);
-  if (!auth) store.dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
+  if (!auth) {
+    /** 開啟提醒 Modal */
+    store.dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
+  } else {
+    store.dispatch(executeAddProductCartAction(product))
+  }
 }
 
 /** 

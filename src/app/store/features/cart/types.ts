@@ -1,4 +1,5 @@
 import { Product } from '../../../api/models/get/getCartsUser';
+import { GetSingleProductResp } from '../../../api/models/get/getSingleProduct';
 
 /** 購物車 State */
 export interface CartState {
@@ -28,14 +29,14 @@ export interface ExecuteInitCartDoneAction {
 export interface ExecuteAddProductAction {
   type: typeof EXECUTE__ADD_PRODUCT,
   payload: {
-    response: Product
+    response: GetSingleProductResp
   }
 }
 
 export interface ExecuteAddProductDoneAction {
   type: typeof EXECUTE__ADD_PRODUCT__DONE,
   payload: {
-    response: Product
+    response: Product[]
   }
 }
 
