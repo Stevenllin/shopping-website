@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/types';
 import { PiShoppingCartSimpleBold } from 'react-icons/pi'
@@ -13,6 +13,7 @@ import { ROUTES } from '../../../core/router/paths';
 
 const Header: React.FC = () => {
   const routerLocation = useLocation();
+  const routerHistory = useHistory();
   const dispatch = useDispatch();
   /** 啟用/關閉 menu bar */
   const [menuBarActive, setMenuBarActive] = useState<boolean>(false);
@@ -24,7 +25,6 @@ const Header: React.FC = () => {
   const authState = useSelector((state: RootState) => state.features.login.token);
   /** 取得使用者購物車 */
   const carts = useSelector((state: RootState) => state.features.cart.products);
-  console.log('carts', carts);
 
   /**
    * @description 處理視窗滾動控制 Menu 顯示/隱藏
@@ -58,6 +58,13 @@ const Header: React.FC = () => {
     dispatch(setModalVisibleAction(ModalNamesEnum.MemberLoginModal, true))
   }
 
+  /** 
+   * @description 導去結帳畫面
+   */
+  const handleGoToPayProccess = () => {
+    routerHistory.push(ROUTES.PAY_CONFIRMINFO);
+  }
+
   return (
     <header>
       {/** navbar section */}
@@ -82,7 +89,7 @@ const Header: React.FC = () => {
               )
             }
             {/** 購物車 icons */}
-            <button type="button">
+            <button type="button" onClick={handleGoToPayProccess}>
               <PiShoppingCartSimpleBold className="icons-white icons-sm" />
             </button>
             {/** 購物車數量 */}
