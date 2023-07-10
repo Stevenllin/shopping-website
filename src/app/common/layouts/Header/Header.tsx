@@ -62,7 +62,10 @@ const Header: React.FC = () => {
    * @description 導去結帳畫面
    */
   const handleGoToPayProccess = () => {
-    routerHistory.push(ROUTES.PAY_CONFIRMINFO);
+    /** 未登入，跳出窗口 */
+    if (!authState) dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
+    /** 已登入，導向結帳畫面 */
+    if (authState) routerHistory.push(ROUTES.PAY_CONFIRMINFO);
   }
 
   return (
