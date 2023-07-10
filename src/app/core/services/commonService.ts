@@ -58,7 +58,7 @@ const handleExecuteLogout = () => {
     /** 移除個人資料 */
     storageService.removeItem(StorageKeysEnum.Username);
     /** 移除購物車資料 */
-    storageService.removeItem(StorageKeysEnum.Cart);
+    // storageService.removeItem(StorageKeysEnum.Cart);
     /** 重新整理頁面 */
     window.location.reload()
   }

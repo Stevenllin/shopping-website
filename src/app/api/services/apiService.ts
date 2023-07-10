@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GetProductsCategoryResp } from '../models/get/getProductsCategory';
+import { GetProductsResp } from '../models/get/getProducts';
 import { GetSingleProductResp } from '../models/get/getSingleProduct';
 import { PostAuthLoginReq, PostAuthLoginResp } from '../models/post/postAuthLogin';
 import { GetUsersResp } from '../models/get/getUsers';
@@ -10,7 +11,7 @@ export default {
   /** 查詢所有商品 */
   getProducts: async () => {
     const argsModel = {};
-    return axios.get('/products', argsModel).then((response) => response.data)
+    return axios.get<GetProductsResp[]>('/products', argsModel).then((response) => response.data)
   },
   /** 查詢所有類別 */
   getAllCategories: async () => {
