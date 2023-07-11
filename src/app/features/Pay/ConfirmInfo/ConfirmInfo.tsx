@@ -17,6 +17,8 @@ const ConfirmInfo: React.FC = () => {
   const [allProducts, setAllProducts] = useState<GetProductsResp[]>([]);
   /** 購物車商品的細節 */
   const [cartProducts, setCartProducts] = useState<ProductDetails[]>([]);
+  /** 總價格 */
+  const [totalPrice, setTotalPrice] = useState<number>(0)
 
   /** 
    * @description 取得所有商品的資訊
@@ -38,6 +40,13 @@ const ConfirmInfo: React.FC = () => {
     setCartProducts(result)
   },[carts, allProducts])
 
+  /**
+   * 計算總價格
+   */
+  useEffect(() => {
+
+  }, [cartProducts])
+
   console.log('cartProducts', cartProducts)
 
   return (
@@ -48,13 +57,13 @@ const ConfirmInfo: React.FC = () => {
         <section id="customer-info">
           <div className="row mb-3">
             <div className="col-3">
-              <p>Firstname:</p>
+              <p className="info-label">Firstname:</p>
             </div>
             <div className="col-3">
               <p>{member?.name.firstname}</p>
             </div>
             <div className="col-3">
-              <p>Lastname:</p>
+              <p className="info-label">Lastname:</p>
             </div>
             <div className="col-3">
               <p>{member?.name.lastname}</p>
@@ -62,13 +71,13 @@ const ConfirmInfo: React.FC = () => {
           </div>
           <div className="row mb-3">
             <div className="col-3">
-              <p>Phone:</p>
+              <p className="info-label">Phone:</p>
             </div>
             <div className="col-3">
               <p>{member?.phone}</p>
             </div>
             <div className="col-3">
-              <p>Email:</p>
+              <p className="info-label">Email:</p>
             </div>
             <div className="col-3">
               <p>{member?.email}</p>
@@ -76,7 +85,7 @@ const ConfirmInfo: React.FC = () => {
           </div>
           <div className="row mb-3">
             <div className="col-3">
-              <p>Address:</p>
+              <p className="info-label">Address:</p>
             </div>
             <div className="col-9">
               <p>{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
@@ -98,12 +107,12 @@ const ConfirmInfo: React.FC = () => {
                   <h4>{item.detail?.title}</h4>
                   {/** 數量 */}
                   <div className="d-flex align-items-center">
-                    <button type="button" className="me-2">
-                      <AiFillMinusCircle className="icons-md" />
+                    <button type="button" className="me-4">
+                      <AiFillMinusCircle className="icons-md icons-grey" />
                     </button>
                     <p className="m-0">{item.quantity}</p>
-                    <button type="button" className="ms-2">
-                      <IoIosAddCircle className="icons-md" />
+                    <button type="button" className="ms-4">
+                      <IoIosAddCircle className="icons-md icons-grey" />
                     </button>
                   </div>
                   {/** 價格 */}

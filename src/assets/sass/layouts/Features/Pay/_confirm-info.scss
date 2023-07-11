@@ -14,4 +14,31 @@
   p {
     font-size: 1.25rem;
   }
+
+  #customer-info {
+    width: 80%;
+    margin: 0 auto;
+
+    .info-label {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .info-label::before {
+      position: absolute;
+      left: 0px;
+      display: block;
+      width: 4px;
+      background: $color-main-normal;
+      border-radius: 10px;
+      content: "";
+      height: 100%;
+    }
+  }
+
+  #cart-info {
+    svg:hover {
+      color: $color-minor-dark;
+    }
+  }
 }
