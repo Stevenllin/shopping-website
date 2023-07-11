@@ -2,10 +2,10 @@ import { takeEvery, all, put, call } from 'redux-saga/effects';
 import { StorageKeysEnum } from '../../../core/enums/storage';
 import storageService from '../../../core/services/storageService';
 import { GetCartsUserResp, Product } from '../../../api/models/get/getCartsUser';
-import { ExecuteInitCartAction, ExecuteAddProductAction, EXECUTE__INIT_CART, EXECUTE__ADD_PRODUCT } from './types';
+import { ExecuteInitCartAction, ExecuteAddProductAction, ExecuteRemoveProductAction, EXECUTE__INIT_CART, EXECUTE__ADD_PRODUCT, EXECUTE__REMOVE_PRODUCT } from './types';
 import { executeInitCartDoneAction } from './actions';
 import apiService from '../../../api/services/apiService';
-import { executeAddProductCartDoneAction } from './actions';
+import { executeAddProductCartDoneAction, executeRemoveProductDoneAction } from './actions';
 
 
 /**
@@ -51,9 +51,33 @@ function* executeAddProduct(action: ExecuteAddProductAction) {
   storageService.setItem(StorageKeysEnum.Cart, JSON.stringify(cartsUpdated))
 }
 
+/**
+ * @description 將商品移除購物車
+ */
+function* executeRemoveProduct(action: ExecuteRemoveProductAction){
+  const carts: Product[] = JSON.parse(storageService.getItem(StorageKeysEnum.Cart));
+  /** 兩種情況：商品數量等於 1、商品數量大於 1 */
+  const cartsUpdated: Product[] = carts.map((product: Product) => {
+    if (product.productId === action.payload.response.id) {
+      if (product.quantity > 1) {
+        return { ...product, quantity: product.quantity - 1 }
+      } else {
+        return { ...product, quantity: 0 }
+      }
+    } else {
+      return { ...product }
+    }
+  }).filter(item => item.quantity !== 0)
+  /** 記得更新購物車 */
+  yield put(executeRemoveProductDoneAction(cartsUpdated))
+  /** 儲存至 LocalStorage */
+  storageService.setItem(StorageKeysEnum.Cart, JSON.stringify(cartsUpdated))
+}
+
 export default function * watchCartSaga () {
   yield all([
     takeEvery(EXECUTE__INIT_CART, executeInitCart),
-    takeEvery(EXECUTE__ADD_PRODUCT, executeAddProduct)
+    takeEvery(EXECUTE__ADD_PRODUCT, executeAddProduct),
+    takeEvery(EXECUTE__REMOVE_PRODUCT, executeRemoveProduct)
   ])
 }

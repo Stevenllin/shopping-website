@@ -1,4 +1,4 @@
-import { CartActions, EXECUTE__INIT_CART, EXECUTE__INIT_CART__DONE, EXECUTE__ADD_PRODUCT, EXECUTE__ADD_PRODUCT__DONE } from './types';
+import { CartActions, EXECUTE__INIT_CART, EXECUTE__INIT_CART__DONE, EXECUTE__ADD_PRODUCT, EXECUTE__ADD_PRODUCT__DONE, EXECUTE__REMOVE_PRODUCT, EXECUTE__REMOVE_PRODUCT__DONE } from './types';
 import { Product } from '../../../api/models/get/getCartsUser';
 import { GetSingleProductResp } from '../../../api/models/get/getSingleProduct';
 
@@ -34,3 +34,18 @@ export const executeAddProductCartDoneAction = (response: Product[]): CartAction
   payload: { response }
 })
 
+/**
+ * @description 提供使用者將從購物車移除商品 
+ */
+ export const executeRemoveProductCartAction = (response: GetSingleProductResp): CartActions => ({
+  type: EXECUTE__REMOVE_PRODUCT,
+  payload: { response }
+})
+
+/**
+ * @description 提供使用者將商品加入購物車 Done
+ */
+ export const executeRemoveProductDoneAction = (response: Product[]): CartActions => ({
+  type: EXECUTE__REMOVE_PRODUCT__DONE,
+  payload: { response }
+})

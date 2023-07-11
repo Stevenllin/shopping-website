@@ -4,7 +4,7 @@ import storageService from './storageService';
 import store from '../../store';
 import { ModalNamesEnum } from '../enums/ui/modals';
 import { setModalVisibleAction } from '../../store/ui/actions';
-import { executeAddProductCartAction } from '../../store/features/cart/actions';
+import { executeAddProductCartAction, executeRemoveProductCartAction } from '../../store/features/cart/actions';
 
 /**
  * @description 處理視窗滾動至目標 Section
@@ -33,16 +33,22 @@ const handleWindowScrollToTargetSection = (event: React.SyntheticEvent | null, s
 }
 
 /**
- * @description 加入購物車
- * 
+ * @description 移除商品購物車
  */
-const handleAddProductToCart = (product: GetSingleProductResp) => {
+const handleRemoveProductFromCart = (product: GetSingleProductResp | null) => {
+  if (product) store.dispatch(executeRemoveProductCartAction(product))
+}
+
+/**
+ * @description 加入購物車
+ */
+const handleAddProductToCart = (product: GetSingleProductResp | null) => {
   const auth = storageService.getItem(StorageKeysEnum.Authorization);
   if (!auth) {
     /** 開啟提醒 Modal */
     store.dispatch(setModalVisibleAction(ModalNamesEnum.RemindModal, true))
   } else {
-    store.dispatch(executeAddProductCartAction(product))
+    if (product) store.dispatch(executeAddProductCartAction(product))
   }
 }
 
@@ -68,5 +74,6 @@ const handleExecuteLogout = () => {
 export default {
   handleWindowScrollToTargetSection,
   handleExecuteLogout,
-  handleAddProductToCart
+  handleAddProductToCart,
+  handleRemoveProductFromCart
 }

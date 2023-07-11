@@ -7,6 +7,7 @@ import { RootState } from '../../../store/types';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { IoIosAddCircle } from 'react-icons/io';
 import { ProductDetails } from './types';
+import commonService from '../../../core/services/commonService';
 
 const ConfirmInfo: React.FC = () => {
   /** 會員資訊 */
@@ -96,8 +97,8 @@ const ConfirmInfo: React.FC = () => {
         <h3 className="text-center section-title">CART'S INFORMATION</h3>
         <section id="cart-info">
           {
-            cartProducts.length > 0 && cartProducts.map(item => (
-              <div className="row mb-5" key={item.detail?.id}>
+            cartProducts.length > 0 && cartProducts.map((item, index) => (
+              <div className="row mb-5" key={index}>
                 <div className="col-6 d-flex justify-content-center">
                   {/** image */}
                   <img src={item.detail?.image} alt={item.detail?.title} height={300} />
@@ -108,10 +109,10 @@ const ConfirmInfo: React.FC = () => {
                   {/** 數量 */}
                   <div className="d-flex align-items-center">
                     <button type="button" className="me-4">
-                      <AiFillMinusCircle className="icons-md icons-grey" />
+                      <AiFillMinusCircle className="icons-md icons-grey" onClick={() => commonService.handleRemoveProductFromCart(item.detail)} />
                     </button>
                     <p className="m-0">{item.quantity}</p>
-                    <button type="button" className="ms-4">
+                    <button type="button" className="ms-4" onClick={() => commonService.handleAddProductToCart(item.detail)}>
                       <IoIosAddCircle className="icons-md icons-grey" />
                     </button>
                   </div>
