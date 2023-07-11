@@ -8,6 +8,7 @@ import ModalCollection from '../../components/Modals/ModalCollection';
 import storageService from '../../../core/services/storageService';
 import { StorageKeysEnum } from '../../../core/enums/storage';
 import { RootState } from '../../../store/types';
+import Footer from '../Footer';
 
 const MainLayout: React.FC = (props) => {
   const reduxDispatch = useDispatch();
@@ -38,6 +39,7 @@ const MainLayout: React.FC = (props) => {
       <main>
         {props.children}
       </main>
+      <Footer/>
       <ModalCollection />
       <AsyncSpinner />
     </>

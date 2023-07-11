@@ -1,0 +1,14 @@
+.footer-container {
+  background-color: $color-main-light;
+  height: 180px;
+
+  a {
+    all: unset;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+
+  p {
+    color: $color-main-dark;
+  }
+}
