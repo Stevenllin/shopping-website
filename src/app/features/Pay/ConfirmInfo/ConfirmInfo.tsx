@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import apiService from '../../../api/services/apiService';
 import { GetProductsResp } from '../../../api/models/get/getProducts';
@@ -18,8 +17,6 @@ const ConfirmInfo: React.FC = () => {
   const [allProducts, setAllProducts] = useState<GetProductsResp[]>([]);
   /** 購物車商品的細節 */
   const [cartProducts, setCartProducts] = useState<ProductDetails[]>([]);
-  /** 總價格 */
-  const [totalPrice, setTotalPrice] = useState<number>(0)
 
   /** 
    * @description 取得所有商品的資訊
@@ -44,11 +41,13 @@ const ConfirmInfo: React.FC = () => {
   /**
    * 計算總價格
    */
-  useEffect(() => {
-
+  const totalPrice = useMemo(() => {
+    let sum = 0
+    cartProducts.forEach(item => {
+      if (item.detail) sum = sum + item.quantity * item.detail?.price
+    })
+    return sum
   }, [cartProducts])
-
-  console.log('cartProducts', cartProducts)
 
   return (
     <div id="confirm-info">
@@ -123,6 +122,9 @@ const ConfirmInfo: React.FC = () => {
             ))
           }
         </section>
+        <div className="d-flex justify-content-end">
+          <p>Total Price: {totalPrice}</p>
+        </div>
         <div className="d-flex justify-content-center">
           <button type="button" className="button-main">NEXT</button>
         </div>
