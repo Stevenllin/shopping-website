@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProcessContainerProps } from './types';
-import ProgressBar from '../../../../components/ProgressBar';
+import ProgressBar from '../../../../components/CompoundComponent/ProgressBar';
 
 const ProcessContainer: React.FC<ProcessContainerProps> = (props) => (
   <div className="process">
