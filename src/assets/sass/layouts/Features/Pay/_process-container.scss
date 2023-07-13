@@ -1,10 +1,44 @@
 .process-container {
   margin-top: 72px;
-
   padding-top: 32px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.progress-bar .line {
+  background: #a9a9a9;
+  width: 150px;
+  height: 1px;
+}
+
+.progress-bar {
+  background: transparent;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  color: #797470;
+  margin-bottom: 44px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.progress-bar .dot {
+  background: #fff;
+  border: 5px solid #b6aaa2;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 8px;
+  position: relative;
+}
+
+.progress-bar .progress-item:first-child .line:first-child {
+  visibility: hidden;
+}
+
+.progress-bar .progress-item:last-child .line:last-child {
+  visibility: hidden;
 }
