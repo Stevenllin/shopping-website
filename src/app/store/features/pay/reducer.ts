@@ -4,7 +4,8 @@ import { ProcessStepCodesEnum } from '../../../features/Pay/types';
 
 /** 初始結帳流程 State */
 const initialState: PayState = {
-  process: [ProcessStepCodesEnum.ConfirmInfo]
+  process: [ProcessStepCodesEnum.ConfirmInfo],
+  clauses: false
 }
 
 const payReducer: Reducer<PayState, PayActions> = (state = initialState, action) => {
@@ -12,7 +13,7 @@ const payReducer: Reducer<PayState, PayActions> = (state = initialState, action)
     case EXECUTE__SET_ACCESSIBLE_STEP: {
       const currentStep = action.payload.step;
       const accessibleSteps = state.process.filter(step => step !== currentStep).concat(currentStep)
-      return { process: accessibleSteps }
+      return { ...state, process: accessibleSteps }
     }
     default:
       return state;

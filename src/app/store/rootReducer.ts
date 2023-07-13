@@ -3,6 +3,7 @@ import { connectRouter } from 'connected-react-router';
 import commonReducer from './common/reducer';
 import featuresLoginReducer from './features/login/reducer';
 import featuresCartReducer from './features/cart/reducer';
+import featuresPayReducer from './features/pay/reducer';
 import UIReducer from './ui/reducer';
 import { routerHistory } from '../core/router/service';
 
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   UI: UIReducer,
   features: combineReducers({
     login: featuresLoginReducer,
-    cart: featuresCartReducer
+    cart: featuresCartReducer,
+    pay: featuresPayReducer
   })
 });
 

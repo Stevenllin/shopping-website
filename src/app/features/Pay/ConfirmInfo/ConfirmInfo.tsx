@@ -1,14 +1,20 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import apiService from '../../../api/services/apiService';
 import { GetProductsResp } from '../../../api/models/get/getProducts';
 import { RootState } from '../../../store/types';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { IoIosAddCircle } from 'react-icons/io';
+import { setAccessibleStepAction } from '../../../store/features/pay/actions';
 import { ProductDetails } from './types';
+import { ProcessRouteMatchesStep } from '../types'
 import commonService from '../../../core/services/commonService';
+import { ROUTES } from '../../../core/router/paths';
 
 const ConfirmInfo: React.FC = () => {
+  const routerHistory = useHistory()
+  const reduxDispatch = useDispatch();
   /** 會員資訊 */
   const member = useSelector((state: RootState) => state.common.member);
   /** 購物車資訊 */
@@ -17,6 +23,8 @@ const ConfirmInfo: React.FC = () => {
   const [allProducts, setAllProducts] = useState<GetProductsResp[]>([]);
   /** 購物車商品的細節 */
   const [cartProducts, setCartProducts] = useState<ProductDetails[]>([]);
+  const pay = useSelector((state: RootState) => state.features.pay);
+  console.log('pay', pay);
 
   /** 
    * @description 取得所有商品的資訊
@@ -48,6 +56,14 @@ const ConfirmInfo: React.FC = () => {
     })
     return sum
   }, [cartProducts])
+
+  /** 
+   * @description 前往同意條款
+   */
+  const handleGoToClause = () => {
+    reduxDispatch(setAccessibleStepAction(ProcessRouteMatchesStep[ROUTES.PAY_CLAUSE]))
+    routerHistory.push(ROUTES.PAY_CLAUSE)
+  }
 
   return (
     <div id="confirm-info">
@@ -126,7 +142,7 @@ const ConfirmInfo: React.FC = () => {
           <p>Total Price: {totalPrice}</p>
         </div>
         <div className="d-flex justify-content-center">
-          <button type="button" className="button-main">NEXT</button>
+          <button type="button" className="button-main" onClick={handleGoToClause}>NEXT</button>
         </div>
       </div>
     </div>

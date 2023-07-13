@@ -3,6 +3,7 @@ import { ProcessStepCodesEnum } from '../../../features/Pay/types';
 /** 結帳流程 State */
 export interface PayState {
   process: ProcessStepCodesEnum[];
+  clauses: boolean;
 }
 
 /** 結帳流程 Action */
