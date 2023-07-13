@@ -85,10 +85,10 @@ const ConfirmInfo: React.FC = () => {
           </div>
           <div className="row mb-3">
             <div className="col-3">
-              <p className="info-label">Address:</p>
+              <p className="info-label m-0">Address:</p>
             </div>
             <div className="col-9">
-              <p>{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
+              <p className="m-0">{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
             </div>
           </div>
         </section>

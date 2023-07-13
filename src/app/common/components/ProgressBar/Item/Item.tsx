@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ProgressBarContext from '../ProgressBarContext';
+import { FaCircleCheck } from 'react-icons/fa6';
 import { ItemProps } from './types';
 
 const Item: React.FC<ItemProps> = (props) => {
@@ -20,9 +21,17 @@ const Item: React.FC<ItemProps> = (props) => {
 
   return (
     <div className="progress-item">
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center mb-4">
         <div className="line" />
-        <div className="dot" />
+        <div className="dot">
+        {
+          isActive && (
+            <div className="checked">
+              <FaCircleCheck className="icons-lg icons-minor-dark" />
+            </div>
+          )
+        }
+        </div>
         <div className="line" />
       </div>
       <div className={"text" + (isActive ? " active" : "")}>

@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    color: $color-main-dark;
+  }
 }
 
 .progress-bar .line {
@@ -21,7 +25,7 @@
   align-items: center;
   overflow: visible;
   color: #797470;
-  margin-bottom: 44px;
+  margin-bottom: 30px;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
@@ -33,6 +37,17 @@
   height: 16px !important;
   border-radius: 8px;
   position: relative;
+
+  .checked {
+    position: absolute;
+    top: -24px;
+    left: -24px;
+    background-color: white;
+  }
+}
+
+.progress-bar .active {
+  color: #565250;
 }
 
 .progress-bar .progress-item:first-child .line:first-child {
