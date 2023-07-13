@@ -1,14 +1,15 @@
 import React from 'react';
-import { Form, FormikProvider } from 'formik';
+import { FormikProvider } from 'formik';
+import FormikForm from '../../FormikForm';
 import FormSubmit from './FormSubmit';
 import { FormikContainerProps, ChildComponents } from './types';
 
 const FormikContainer: React.FC<FormikContainerProps> & ChildComponents = ({ formik, children }) => {
   return (
     <FormikProvider value={formik}>
-      <Form>
+      <FormikForm>
         {children}
-      </Form>
+      </FormikForm>
     </FormikProvider>
   )
 }
