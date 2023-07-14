@@ -27,7 +27,7 @@ const ArticleDisplayField: React.FC<ArticleDisplayFieldProps> = (props) => {
         <div className="head">
           <p>{props.title.toUpperCase()}</p>
           {props.scrollbar && (
-            <div className="notes">Please scroll to the end of the article.</div>
+            <p className="notes">Please scroll to the end of the article.</p>
           )}
         </div>
         <div dangerouslySetInnerHTML={props.dangerouslySetInnerHTML} className="body" ref={contentRef} onScroll={handleCheckScrollToBottom}>

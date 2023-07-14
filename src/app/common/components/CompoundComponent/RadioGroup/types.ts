@@ -6,5 +6,5 @@ export interface RadioGroupProps extends React.InputHTMLAttributes<HTMLInputElem
 }
 
 export interface RadioGroupFieldChildComponents {
-  Radio: typeof RadioButtonField;
+  RadioButtonField: typeof RadioButtonField;
 }

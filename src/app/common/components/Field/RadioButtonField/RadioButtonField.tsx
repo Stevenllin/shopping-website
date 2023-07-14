@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { RadioButtonFieldProps } from './types';
 
-const RadioButtonField: React.FC<RadioButtonFieldProps> = ({ field, id, ...props }) => {
+const RadioButtonField: React.FC<RadioButtonFieldProps> = ({ field, index, id, ...props }) => {
 
   return (
     <div className="field-radio">

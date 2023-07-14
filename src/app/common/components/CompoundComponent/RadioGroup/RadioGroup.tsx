@@ -12,12 +12,12 @@ const RadioGroup: React.FC<RadioGroupProps> & RadioGroupFieldChildComponents = (
   }
 
   return (
-    <>
+    <div className="radio-group-container">
       <div className="radio-name">{props.label}</div>
       <div className="d-flex justify-content-center">
         {React.Children.map(
           props.children,
-          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { ...props, field: field, onChange: handleChange }) : child
+          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { index, field: field, onChange: handleChange }) : child
         )}
       </div>
       {
@@ -25,10 +25,10 @@ const RadioGroup: React.FC<RadioGroupProps> & RadioGroupFieldChildComponents = (
           <div>{meta.error}</div>
         )
       }
-    </>
+    </div>
   )
 }
 
-RadioGroup.Radio = RadioButtonField;
+RadioGroup.RadioButtonField = RadioButtonField;
 
 export default RadioGroup;

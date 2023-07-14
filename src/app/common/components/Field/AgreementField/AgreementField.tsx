@@ -18,13 +18,13 @@ const AgreementField: React.FC<AgreementFieldProps> = (props) => {
 
   return (
     <section id="agreement-field">
-      <RadioGroup {...props} label="">
-        <RadioGroup.Radio value="1" onChange={handleAgreeChange}>
-          <>{props.agreeText}</>
-        </RadioGroup.Radio>
-        <RadioGroup.Radio value="0" onChange={handleDisagreeChange}>
-          <>{props.disagreeText}</>
-        </RadioGroup.Radio>
+      <RadioGroup {...props} name="radio" label="">
+        <RadioGroup.RadioButtonField value="1" onChange={handleAgreeChange}>
+          <div className="m-2">{props.agreeText}</div>
+        </RadioGroup.RadioButtonField>
+        <RadioGroup.RadioButtonField value="0" onChange={handleDisagreeChange}>
+          <div className="m-2">{props.disagreeText}</div>
+        </RadioGroup.RadioButtonField>
       </RadioGroup>
     </section>
   )

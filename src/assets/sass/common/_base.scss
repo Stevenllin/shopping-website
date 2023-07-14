@@ -94,3 +94,17 @@ footer {
     background-color: #efa028;
   }
 }
+
+.button-minor {
+  padding: 0.8rem;
+  min-width: 120px;
+  color: $color-minor-dark;
+  background-color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 10px;
+
+  &:hover {
+    color: #efa028;
+  }
+}
