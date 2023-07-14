@@ -8,6 +8,7 @@ body {
 @import "./components/Spinner/LoadingSpinner/loading-spinner";
 @import "./components/Modal/modal";
 @import "./components/Field/input-field";
+@import "./components/CompoundComponent/RadioGroup/radio-group";
 @import "./components/CompoundComponent/Form/form";
 @import "./layouts/Header/header";
 @import "./layouts/Footer/footer";
@@ -15,4 +16,5 @@ body {
 @import "./layouts/Features/Home/Product/product";
 @import "./layouts/Features/ProductDetail/product-detail";
 @import "./layouts/Features/Pay/confirm-info";
+@import "./layouts/Features/Pay/clause";
 @import "./layouts/Features/Pay/process-container";

@@ -1,7 +1,13 @@
 import { Reducer } from 'redux';
 import storageService from '../../../core/services/storageService';
 import { StorageKeysEnum } from '../../../core/enums/storage';
-import { CartState, CartActions, EXECUTE__INIT_CART__DONE, EXECUTE__ADD_PRODUCT__DONE, EXECUTE__REMOVE_PRODUCT__DONE } from './types';
+import {
+  CartState, CartActions,
+  EXECUTE__INIT_CART__DONE,
+  EXECUTE__ADD_PRODUCT__DONE,
+  EXECUTE__REMOVE_PRODUCT__DONE,
+  EXECUTE__RESET_CART
+} from './types';
 
 /** 初始購物車 State */
 const initialState: CartState = {

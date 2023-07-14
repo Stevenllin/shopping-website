@@ -3,7 +3,7 @@ import { useField } from 'formik';
 import { InputTextFieldProps } from './types';
 
 const InputTextField: React.FC<InputTextFieldProps> = ({ name, label, type, disabled, placeholder }) => {
-  const [field, meta, helper] = useField(name);
+  const [field, meta] = useField(name);
   return (
     <div className={`field ${meta.error && meta.touched ? ' field__invalid' : ''}`}>
       <div className="field__title">{label.toUpperCase()}</div>
