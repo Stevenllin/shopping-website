@@ -6,7 +6,8 @@ import {
   EXECUTE__ADD_PRODUCT__DONE,
   EXECUTE__REMOVE_PRODUCT,
   EXECUTE__REMOVE_PRODUCT__DONE,
-  EXECUTE__RESET_CART
+  EXECUTE__RESET_CART,
+  EXECUTE__RESET_CART__DONE
 } from './types';
 import { Product } from '../../../api/models/get/getCartsUser';
 import { GetSingleProductResp } from '../../../api/models/get/getSingleProduct';
@@ -59,6 +60,16 @@ export const executeRemoveProductDoneAction = (response: Product[]): CartActions
   payload: { response }
 })
 
+/** 
+ * @description 清空使用者的購物車
+ */
 export const executeResetCartAction = (): CartActions => ({
   type: EXECUTE__RESET_CART
+})
+
+/** 
+ * @description 清空使用者的購物車 Done
+ */
+export const executeResetCartDoneAction = (): CartActions => ({
+  type: EXECUTE__RESET_CART__DONE
 })

@@ -14,6 +14,7 @@ export const EXECUTE__ADD_PRODUCT__DONE = 'EXECUTE__ADD_PRODUCT__DONE';
 export const EXECUTE__REMOVE_PRODUCT = 'EXECUTE__REMOVE_PRODUCT';
 export const EXECUTE__REMOVE_PRODUCT__DONE = 'EXECUTE__REMOVE_PRODUCT__DONE';
 export const EXECUTE__RESET_CART = 'EXECUTE__RESET_CART';
+export const EXECUTE__RESET_CART__DONE = 'EXECUTE__RESET_CART__DONE';
 
 export interface ExecuteInitCartAction {
   type: typeof EXECUTE__INIT_CART,
@@ -61,10 +62,15 @@ export interface ExecuteResetCartAction {
   type: typeof EXECUTE__RESET_CART
 }
 
+export interface ExecuteResetCartDoneAction {
+  type: typeof EXECUTE__RESET_CART__DONE
+}
+
 export type CartActions = ExecuteInitCartAction 
 | ExecuteInitCartDoneAction 
 | ExecuteAddProductAction 
 | ExecuteAddProductDoneAction
 | ExecuteRemoveProductAction
 | ExecuteRemoveProductDoneAction
-| ExecuteResetCartAction;
+| ExecuteResetCartAction
+| ExecuteResetCartDoneAction;

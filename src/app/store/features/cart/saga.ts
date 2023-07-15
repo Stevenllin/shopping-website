@@ -2,10 +2,18 @@ import { takeEvery, all, put, call } from 'redux-saga/effects';
 import { StorageKeysEnum } from '../../../core/enums/storage';
 import storageService from '../../../core/services/storageService';
 import { GetCartsUserResp, Product } from '../../../api/models/get/getCartsUser';
-import { ExecuteInitCartAction, ExecuteAddProductAction, ExecuteRemoveProductAction, EXECUTE__INIT_CART, EXECUTE__ADD_PRODUCT, EXECUTE__REMOVE_PRODUCT } from './types';
+import {
+  ExecuteInitCartAction,
+  ExecuteAddProductAction,
+  ExecuteRemoveProductAction,
+  EXECUTE__INIT_CART,
+  EXECUTE__ADD_PRODUCT,
+  EXECUTE__REMOVE_PRODUCT,
+  EXECUTE__RESET_CART
+} from './types';
 import { executeInitCartDoneAction } from './actions';
 import apiService from '../../../api/services/apiService';
-import { executeAddProductCartDoneAction, executeRemoveProductDoneAction } from './actions';
+import { executeAddProductCartDoneAction, executeRemoveProductDoneAction, executeResetCartDoneAction } from './actions';
 
 
 /**
@@ -74,10 +82,19 @@ function* executeRemoveProduct(action: ExecuteRemoveProductAction){
   storageService.setItem(StorageKeysEnum.Cart, JSON.stringify(cartsUpdated))
 }
 
+/** 
+ * @description 清空使用者的購物車
+ */
+function* executeResetCart(){
+  storageService.setItem(StorageKeysEnum.Cart, JSON.stringify([]))
+  yield put(executeResetCartDoneAction())
+}
+
 export default function * watchCartSaga () {
   yield all([
     takeEvery(EXECUTE__INIT_CART, executeInitCart),
     takeEvery(EXECUTE__ADD_PRODUCT, executeAddProduct),
-    takeEvery(EXECUTE__REMOVE_PRODUCT, executeRemoveProduct)
+    takeEvery(EXECUTE__REMOVE_PRODUCT, executeRemoveProduct),
+    takeEvery(EXECUTE__RESET_CART, executeResetCart)
   ])
 }

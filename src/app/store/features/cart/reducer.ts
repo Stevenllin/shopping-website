@@ -6,7 +6,7 @@ import {
   EXECUTE__INIT_CART__DONE,
   EXECUTE__ADD_PRODUCT__DONE,
   EXECUTE__REMOVE_PRODUCT__DONE,
-  EXECUTE__RESET_CART
+  EXECUTE__RESET_CART__DONE
 } from './types';
 
 /** 初始購物車 State */
@@ -24,6 +24,9 @@ const cartReducer: Reducer<CartState, CartActions> = (state = initialState, acti
     }
     case EXECUTE__REMOVE_PRODUCT__DONE: {
       return { products: action.payload.response }
+    }
+    case EXECUTE__RESET_CART__DONE: {
+      return { products: [] }
     }
     default:
       return state;
