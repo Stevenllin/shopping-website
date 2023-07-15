@@ -14,7 +14,8 @@ const Clause: React.FC = () => {
   /** 初始表單值 */
   const initialFormValues: FormValues = {
     clause: false,
-    regTermAgreeTime: ''
+    regTermAgreeTime: '',
+    radio: ''
   }
 
   const formik = useFormik<FormValues>({
@@ -25,13 +26,15 @@ const Clause: React.FC = () => {
       clause: Yup.boolean().oneOf([true]),
       regTermAgreeTime: Yup.string().required()
     }),
-    onSubmit: () => {}
+    onSubmit: (formValues) => {
+      console.log('formValues', formValues)
+    }
   })
-  
-  console.log('formik', formik.values);
+
+  console.log('formik.values', formik.values);
 
   /** 
-   * Clean up
+   * @desciption 重置
    */
   useEffect(() => {
     return () => {
@@ -57,6 +60,7 @@ const Clause: React.FC = () => {
             name="regTermAgreeTime"
             agreeText="Agree"
             disagreeText="Disagree"
+            onClick={() => formik.validateForm()}
           />
         </FormikContainer>
       </div>

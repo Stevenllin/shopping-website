@@ -4,10 +4,13 @@ import RadioButtonField from '../../Field/RadioButtonField';
 import { RadioGroupProps, RadioGroupFieldChildComponents } from './types';
 
 const RadioGroup: React.FC<RadioGroupProps> & RadioGroupFieldChildComponents = (props) => {
+  /** 此 name 來自於 radio */
   const [field, meta] = useField(props.name)
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (props.onChange) props.onChange(event)
+    if (props.onChange) {
+      props.onChange(event)
+    }
     field.onChange(event)
   }
 
@@ -17,7 +20,7 @@ const RadioGroup: React.FC<RadioGroupProps> & RadioGroupFieldChildComponents = (
       <div className="d-flex justify-content-center">
         {React.Children.map(
           props.children,
-          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { index, field: field, onChange: handleChange }) : child
+          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { index, field: field, name: props.name,  onChange: handleChange }) : child
         )}
       </div>
       {

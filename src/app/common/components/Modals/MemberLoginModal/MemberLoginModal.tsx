@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { ModalNamesEnum } from '../../../../core/enums/ui/modals';
 import { executeLogin } from '../../../../store/features/login/actions'
-import FormikProvider from '../../CompoundComponent/Form';
+import FormikContainer from '../../CompoundComponent/Form';
 import InputTextField from '../../Field/InputTextField';
 import Modal from '../Modal';
 import { MemberLoginModalProps, FormValues } from './types';
@@ -34,7 +34,7 @@ const MemberLoginModal: React.FC<MemberLoginModalProps> = (props) => {
       title="Member Login"
       visible={props.visible}
     >
-      <FormikProvider formik={formik}>
+      <FormikContainer formik={formik}>
         <InputTextField
           name="username"
           type="text"
@@ -48,8 +48,8 @@ const MemberLoginModal: React.FC<MemberLoginModalProps> = (props) => {
           disabled={false}
         />
         <p className="color-main-normal">Please this username: mor_2314 password: 83r5^_ to login</p>
-        <FormikProvider.FormSubmit></FormikProvider.FormSubmit>
-      </FormikProvider>
+        <FormikContainer.FormSubmit></FormikContainer.FormSubmit>
+      </FormikContainer>
     </Modal>
   )
 }

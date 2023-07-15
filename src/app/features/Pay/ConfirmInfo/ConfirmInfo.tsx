@@ -23,8 +23,6 @@ const ConfirmInfo: React.FC = () => {
   const [allProducts, setAllProducts] = useState<GetProductsResp[]>([]);
   /** 購物車商品的細節 */
   const [cartProducts, setCartProducts] = useState<ProductDetails[]>([]);
-  const pay = useSelector((state: RootState) => state.features.pay);
-  console.log('pay', pay);
 
   /** 
    * @description 取得所有商品的資訊
