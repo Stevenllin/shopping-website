@@ -69,42 +69,89 @@ const ConfirmInfo: React.FC = () => {
         {/** 個人資訊 */}
         <h3 className="text-center section-title">CUSTOMER'S INFORMATION</h3>
         <section id="customer-info">
-          <div className="row mb-3">
-            <div className="col-3">
-              <p className="info-label">Firstname:</p>
+          {/** 電腦版 */}
+          <div className="desktop">
+            <div className="row mb-3">
+              <div className="col-3">
+                <p className="info-label">Firstname:</p>
+              </div>
+              <div className="col-3">
+                <p>{member?.name.firstname}</p>
+              </div>
+              <div className="col-3">
+                <p className="info-label">Lastname:</p>
+              </div>
+              <div className="col-3">
+                <p>{member?.name.lastname}</p>
+              </div>
             </div>
-            <div className="col-3">
-              <p>{member?.name.firstname}</p>
+            <div className="row mb-3">
+              <div className="col-3">
+                <p className="info-label">Phone:</p>
+              </div>
+              <div className="col-3">
+                <p>{member?.phone}</p>
+              </div>
+              <div className="col-3">
+                <p className="info-label">Email:</p>
+              </div>
+              <div className="col-3">
+                <p>{member?.email}</p>
+              </div>
             </div>
-            <div className="col-3">
-              <p className="info-label">Lastname:</p>
-            </div>
-            <div className="col-3">
-              <p>{member?.name.lastname}</p>
+            <div className="row mb-3">
+              <div className="col-3">
+                <p className="info-label m-0">Address:</p>
+              </div>
+              <div className="col-9">
+                <p className="m-0">{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
+              </div>
             </div>
           </div>
-          <div className="row mb-3">
-            <div className="col-3">
-              <p className="info-label">Phone:</p>
+          {/** 手機版 */}
+          <div className="mobile">
+            <div className="row mb-3">
+              <div className="col-4">
+                <p className="info-label">Firstname:</p>
+              </div>
+              <div className="col-8">
+                <p>{member?.name.firstname}</p>
+              </div>
             </div>
-            <div className="col-3">
-              <p>{member?.phone}</p>
+            <div className="row mb-3">
+              <div className="col-4">
+                <p className="info-label">Lastname:</p>
+              </div>
+              <div className="col-8">
+                <p>{member?.name.lastname}</p>
+              </div>
             </div>
-            <div className="col-3">
-              <p className="info-label">Email:</p>
+            <div className="row mb-3">
+              <div className="col-4">
+                <p className="info-label">Phone:</p>
+              </div>
+              <div className="col-8">
+                <p>{member?.phone}</p>
+              </div>
             </div>
-            <div className="col-3">
-              <p>{member?.email}</p>
+            <div className="row mb-3">
+              <div className="col-4">
+                <p className="info-label">Email:</p>
+              </div>
+              <div className="col-8">
+                <p>{member?.email}</p>
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-4">
+                <p className="info-label m-0">Address:</p>
+              </div>
+              <div className="col-8">
+                <p className="m-0">{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
+              </div>
             </div>
           </div>
-          <div className="row mb-3">
-            <div className="col-3">
-              <p className="info-label m-0">Address:</p>
-            </div>
-            <div className="col-9">
-              <p className="m-0">{member?.address.zipcode} {member?.address.city} {member?.address.street}</p>
-            </div>
-          </div>
+
         </section>
         {/** 購物車內資訊 */}
         <h3 className="text-center section-title">CART'S INFORMATION</h3>
@@ -114,9 +161,9 @@ const ConfirmInfo: React.FC = () => {
               <div className="row mb-5" key={index}>
                 <div className="col-6 d-flex justify-content-center">
                   {/** image */}
-                  <img src={item.detail?.image} alt={item.detail?.title} height={300} />
+                  <img src={item.detail?.image} alt={item.detail?.title} />
                 </div>
-                <div className="col-6 p-5 d-flex flex-column justify-content-around">
+                <div className="col-6 p-4 d-flex flex-column justify-content-around">
                   {/** 商品名稱 */}
                   <h4>{item.detail?.title}</h4>
                   {/** 數量 */}

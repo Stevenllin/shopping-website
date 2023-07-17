@@ -20,7 +20,7 @@ const RadioGroup: React.FC<RadioGroupProps> & RadioGroupFieldChildComponents = (
       <div className="d-flex justify-content-center">
         {React.Children.map(
           props.children,
-          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { index, field: field, name: props.name,  onChange: handleChange }) : child
+          (child, index) => React.isValidElement(child) ? React.cloneElement<any>(child, { index, field: field, name: props.name, disabled: props.disabled,  onChange: handleChange }) : child
         )}
       </div>
       {

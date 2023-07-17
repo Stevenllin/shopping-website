@@ -12,6 +12,7 @@ const RadioButtonField: React.FC<RadioButtonFieldProps> = ({ field, index, id, o
         id={inputElemIdRef.current}
         name={props.name}
         value={props.value}
+        disabled={props.disabled}
         onClick={onClick}
         onChange={props.onChange}
       />
