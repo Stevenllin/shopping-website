@@ -108,7 +108,7 @@ const Header: React.FC = () => {
       </nav>
       {/** menubar section */}
       {
-        routerLocation.pathname === ROUTES.HOME && (
+        routerLocation.pathname.includes(ROUTES.HOME) && (
           <div className="menu-bar">
             <div id="menu-bar" className={'container' + (menuBarActive ? ' menu-bar-slide-in' : '')}>
               <ul>
