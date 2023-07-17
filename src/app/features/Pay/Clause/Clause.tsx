@@ -40,6 +40,14 @@ const Clause: React.FC = () => {
   })
 
   /** 
+   * @description 重新導回上一頁
+   */
+  const handleRedirectToConfirmInfo = () => {
+    routerHistory.replace(ROUTES.PAY_CONFIRMINFO)
+    reduxDispatch(resetPayAction())
+  }
+
+  /** 
    * @desciption 重置
    */
   useEffect(() => {
@@ -68,10 +76,11 @@ const Clause: React.FC = () => {
               agreeText="Agree"
               disagreeText="Disagree"
               onClick={() => formik.validateForm()}
+              disabled={!formik.values.clause}
             />
           </div>
           <div className="d-flex justify-content-center mt-5">
-            <button type="button" className="button-minor m-2">Previous Page</button>
+            <button type="button" className="button-minor m-2" onClick={handleRedirectToConfirmInfo}>Previous Page</button>
             <button type="submit" className="button-main m-2">Confirm <span><BsArrowRight className="icons icons-white" /></span></button>
           </div>
         </FormikContainer>
