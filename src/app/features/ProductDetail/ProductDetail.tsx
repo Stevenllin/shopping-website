@@ -19,11 +19,11 @@ const ProductDetail: React.FC = () => {
   return (
     <div id="product-detail">
       <div className="context content-section">
-        <div className="row mb-3">
-          <div className="col-md-6 d-flex align-item-center justify-content-center h-100">
+        <div className="row mb-3 p-3">
+          <div className="col-md-6 d-flex align-item-center justify-content-center h-100 mt-4">
             <img src={detail.image} alt={detail.title} loading="lazy" style={{ width: '70%', height: '70%' }} />
           </div>
-          <div className="col-md-6 product-detail--container h-100">
+          <div className="col-md-6 product-detail--container h-100 mt-4">
             {/** Title */}
             <h3>{detail.title}</h3>
             {/** Category */}
@@ -37,7 +37,7 @@ const ProductDetail: React.FC = () => {
             <p>{detail.rating.rate} (Count: {detail.rating.count})</p>
             {/** Price */}
             <h4>Price:</h4>
-            <p>$ {detail.price}</p>
+            <p>$ {Math.floor(detail.price)}</p>
           </div>
         </div>
         <div className="d-flex justify-content-end">

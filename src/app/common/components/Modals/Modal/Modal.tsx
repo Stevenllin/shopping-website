@@ -40,7 +40,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           <div className="modal-content">
             <div className="modal-header">
               {props.title && (
-                <h5 className="modal-title">{props.title}</h5>
+                <h4 className="modal-title">{props.title}</h4>
               )}
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="close" onClick={handleClose} />
             </div>

@@ -8,6 +8,10 @@ a {
 
 p {
   color: #565250;
+
+  @media (max-width: 575.98px) {
+    font-size: 0.8rem;
+  }
 }
 
 footer {
@@ -86,12 +90,17 @@ footer {
   background-color: $color-minor-dark;
   border-color: $color-minor-dark;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 10px;
 
   &:hover {
     border-color: #efa028;
     background-color: #efa028;
+  }
+
+  @media (max-width: 575.98px) {
+    font-size: 0.8rem;
+    min-width: 80px;
   }
 }
 
@@ -101,10 +110,15 @@ footer {
   color: $color-minor-dark;
   background-color: white;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 10px;
 
   &:hover {
     color: #efa028;
+  }
+
+  @media (max-width: 575.98px) {
+    font-size: 0.8rem;
+    min-width: 80px;
   }
 }
