@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.654b5e4a.css",
-    "main.js": "/portfolio/static/js/main.1052a3b5.js",
-    "static/js/106.7ec3faf8.chunk.js": "/portfolio/static/js/106.7ec3faf8.chunk.js",
-    "static/js/632.9673a0ec.chunk.js": "/portfolio/static/js/632.9673a0ec.chunk.js",
-    "static/js/72.6f597d8b.chunk.js": "/portfolio/static/js/72.6f597d8b.chunk.js",
-    "static/js/646.65bb618d.chunk.js": "/portfolio/static/js/646.65bb618d.chunk.js",
-    "static/js/257.c3b5c9f8.chunk.js": "/portfolio/static/js/257.c3b5c9f8.chunk.js",
-    "static/js/373.e3821bd6.chunk.js": "/portfolio/static/js/373.e3821bd6.chunk.js",
-    "static/js/203.beb5d4a4.chunk.js": "/portfolio/static/js/203.beb5d4a4.chunk.js",
-    "static/js/426.0243e7d4.chunk.js": "/portfolio/static/js/426.0243e7d4.chunk.js",
-    "static/media/logo.png": "/portfolio/static/media/logo.450fdfd3431b1a282548.png",
-    "index.html": "/portfolio/index.html",
-    "main.654b5e4a.css.map": "/portfolio/static/css/main.654b5e4a.css.map",
-    "main.1052a3b5.js.map": "/portfolio/static/js/main.1052a3b5.js.map",
-    "106.7ec3faf8.chunk.js.map": "/portfolio/static/js/106.7ec3faf8.chunk.js.map",
-    "632.9673a0ec.chunk.js.map": "/portfolio/static/js/632.9673a0ec.chunk.js.map",
-    "72.6f597d8b.chunk.js.map": "/portfolio/static/js/72.6f597d8b.chunk.js.map",
-    "646.65bb618d.chunk.js.map": "/portfolio/static/js/646.65bb618d.chunk.js.map",
-    "257.c3b5c9f8.chunk.js.map": "/portfolio/static/js/257.c3b5c9f8.chunk.js.map",
-    "373.e3821bd6.chunk.js.map": "/portfolio/static/js/373.e3821bd6.chunk.js.map",
-    "203.beb5d4a4.chunk.js.map": "/portfolio/static/js/203.beb5d4a4.chunk.js.map",
-    "426.0243e7d4.chunk.js.map": "/portfolio/static/js/426.0243e7d4.chunk.js.map"
+    "main.css": "/shopping-website/static/css/main.654b5e4a.css",
+    "main.js": "/shopping-website/static/js/main.bb6e31f8.js",
+    "static/js/106.7ec3faf8.chunk.js": "/shopping-website/static/js/106.7ec3faf8.chunk.js",
+    "static/js/632.9673a0ec.chunk.js": "/shopping-website/static/js/632.9673a0ec.chunk.js",
+    "static/js/72.6f597d8b.chunk.js": "/shopping-website/static/js/72.6f597d8b.chunk.js",
+    "static/js/646.65bb618d.chunk.js": "/shopping-website/static/js/646.65bb618d.chunk.js",
+    "static/js/257.c3b5c9f8.chunk.js": "/shopping-website/static/js/257.c3b5c9f8.chunk.js",
+    "static/js/373.e3821bd6.chunk.js": "/shopping-website/static/js/373.e3821bd6.chunk.js",
+    "static/js/203.beb5d4a4.chunk.js": "/shopping-website/static/js/203.beb5d4a4.chunk.js",
+    "static/js/426.0243e7d4.chunk.js": "/shopping-website/static/js/426.0243e7d4.chunk.js",
+    "static/media/logo.png": "/shopping-website/static/media/logo.450fdfd3431b1a282548.png",
+    "index.html": "/shopping-website/index.html",
+    "main.654b5e4a.css.map": "/shopping-website/static/css/main.654b5e4a.css.map",
+    "main.bb6e31f8.js.map": "/shopping-website/static/js/main.bb6e31f8.js.map",
+    "106.7ec3faf8.chunk.js.map": "/shopping-website/static/js/106.7ec3faf8.chunk.js.map",
+    "632.9673a0ec.chunk.js.map": "/shopping-website/static/js/632.9673a0ec.chunk.js.map",
+    "72.6f597d8b.chunk.js.map": "/shopping-website/static/js/72.6f597d8b.chunk.js.map",
+    "646.65bb618d.chunk.js.map": "/shopping-website/static/js/646.65bb618d.chunk.js.map",
+    "257.c3b5c9f8.chunk.js.map": "/shopping-website/static/js/257.c3b5c9f8.chunk.js.map",
+    "373.e3821bd6.chunk.js.map": "/shopping-website/static/js/373.e3821bd6.chunk.js.map",
+    "203.beb5d4a4.chunk.js.map": "/shopping-website/static/js/203.beb5d4a4.chunk.js.map",
+    "426.0243e7d4.chunk.js.map": "/shopping-website/static/js/426.0243e7d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.654b5e4a.css",
-    "static/js/main.1052a3b5.js"
+    "static/js/main.bb6e31f8.js"
   ]
 }
