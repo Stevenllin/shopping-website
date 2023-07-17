@@ -16,6 +16,10 @@
   background: #a9a9a9;
   width: 150px;
   height: 1px;
+
+  @media (max-width: 576px) {
+    width: 80px;
+  }
 }
 
 .progress-bar {
@@ -43,6 +47,12 @@
     top: -24px;
     left: -24px;
     background-color: white;
+  }
+}
+
+.progress-item {
+  .text {
+    font-size: 0.8rem;
   }
 }
 

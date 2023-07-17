@@ -16,6 +16,10 @@ p {
 
 footer {
   margin-top: 90px;
+
+  @media (max-width: 576px) {
+    margin-top: 40px;
+  }
 }
 
 .icons-sm {
@@ -77,6 +81,10 @@ footer {
 
 .content-section {
   margin-top: 90px;
+
+  @media (max-width: 576px) {
+    margin-top: 40px;
+  }
 }
 
 .content-section h3 {
@@ -120,5 +128,21 @@ footer {
   @media (max-width: 575.98px) {
     font-size: 0.8rem;
     min-width: 80px;
+  }
+}
+
+.desktop {
+  display: none;
+
+  @media (min-width: 576px) {
+    display: block;
+  }
+}
+
+.mobile {
+  display: none;
+
+  @media (max-width: 576px) {
+    display: block;
   }
 }
