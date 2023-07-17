@@ -3,7 +3,7 @@
  */
 export enum ROUTES {
 	/** 首頁 (module) */
-	HOME = '/',
+	HOME = '/shopping-website',
 	/** 商品明細頁面 */
 	PRODUCT_DETAIL = '/product-detail',
 	/** 結帳流程 */
