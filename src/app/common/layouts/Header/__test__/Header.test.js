@@ -32,6 +32,11 @@ const MockHeaderLogin = () => {
   )
 }
 
+async function fetchProductsCartUser() {
+  const response = await fetch('https://fakestoreapi.com/carts/user/2').then(result => result.json())
+  return response[0].products
+}
+
 
 describe('Header', () => {
   beforeAll(() => {
@@ -59,6 +64,15 @@ describe('Header', () => {
     })
     await waitFor(() => {
       expect(cart).toBeInTheDocument()
+    })
+    /** 呼叫使用者購物車數量 */
+    const products = await fetchProductsCartUser()
+    /** 加總購物車中的商品數量 */
+    const counts = products.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0)
+    const cartNumber = screen.getByLabelText('cart-number')
+    /** 驗證數量是否正確 */
+    await waitFor(() => {
+      expect(cartNumber).toBeInTheDocument(counts)
     })
   })
 })

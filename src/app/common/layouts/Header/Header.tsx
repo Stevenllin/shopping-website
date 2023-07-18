@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             {/** 購物車數量 */}
             {
               authState !== '' && (
-                <div className="header-cart">
+                <div className="header-cart" aria-label="cart-number">
                   <span>{productsCount}</span>
                 </div>
               )
