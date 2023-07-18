@@ -10,6 +10,7 @@ const Product: React.FC<ProductProps> = (props) => {
   const routerHistory = useHistory();
 
   const [products, setProducts] = useState<GetProductsCategoryResp[]>([]);
+  console.log('products', products);
   /** 
    * @description 取得類別所有商品
    */
@@ -34,6 +35,16 @@ const Product: React.FC<ProductProps> = (props) => {
       <div className="context">
         <h3 className="text-center section-title">{props.category.toUpperCase()}</h3>
         <div className="product-container">
+          {
+            products.length === 0 && (
+              [0, 1, 2, 3].map(item => (
+                <div key={item} className="box">
+                  <div className="lds-box">
+                  </div>
+                </div>
+              ))
+            )
+          }
           {
             products.map((product) => (
               <div className="product" key={product.id}>

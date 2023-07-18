@@ -50,6 +50,44 @@
     }
   }
 
+  .box {
+    height: 300px;
+    background-color: $color-main-light;
+    border-radius: 50px;
+
+    @media (max-width: 1199.98px) {
+      height: 250px;
+    }
+
+    @media (max-width: 575.98px) {
+      height: 200px;
+    }
+
+    .lds-box {
+      height: 0px;
+      // background: linear-gradient(white, $color-main-light);
+      animation: change 2s infinite;
+      border-radius: 50px;
+
+      @media (max-width: 1199.98px) {
+        height: 250px;
+      }
+
+      @media (max-width: 575.98px) {
+        height: 200px;
+      }
+
+      @keyframes change {
+        from {
+          background-color: white;
+        }
+        to {
+          background: radial-gradient($color-main-light, $color-main-normal);
+        }
+      }
+    }
+  }
+
   .product:hover img {
     transform: scale(1.1);
   }
