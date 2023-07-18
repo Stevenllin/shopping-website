@@ -78,7 +78,7 @@ const Header: React.FC = () => {
             {/** 登入 icons */}
             {
               authState === '' && (
-                <button type="button" className="me-3">
+                <button type="button" className="me-3" aria-label="log-in-button">
                   <BsFillPersonFill className="icons-white icons-sm" onClick={handleOpenLoginModal} />
                 </button>
               )
@@ -86,13 +86,13 @@ const Header: React.FC = () => {
             {/** 登出 icons */}
             {
               authState !== '' && (
-                <button type="button" className="me-3" onClick={commonService.handleExecuteLogout}>
+                <button type="button" className="me-3" aria-label="log-out-button" onClick={commonService.handleExecuteLogout}>
                   <AiOutlineLogout className="icons-white icons-sm" />
                 </button>
               )
             }
             {/** 購物車 icons */}
-            <button type="button" onClick={handleGoToPayProccess}>
+            <button type="button" aria-label="cart-button" onClick={handleGoToPayProccess}>
               <PiShoppingCartSimpleBold className="icons-white icons-sm" />
             </button>
             {/** 購物車數量 */}
