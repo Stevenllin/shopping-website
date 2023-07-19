@@ -14,7 +14,7 @@ const IndexShowcase: React.FC = () => {
             <ul>
               {
                 categories.map((category) => (
-                  <li key={category}>
+                  <li key={category} aria-label="category">
                     <a href="/#" onClick={(event) => commonService.handleWindowScrollToTargetSection(event, category)}>
                       {category.toUpperCase()}
                     </a>
