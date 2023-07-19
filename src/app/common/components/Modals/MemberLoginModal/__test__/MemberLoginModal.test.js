@@ -1,9 +1,11 @@
+import axios from 'axios';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import MemberLoginModal from '../MemberLoginModal';
 import { Provider } from 'react-redux';
 import { ModalNamesEnum } from '../../../../../core/enums/ui/modals';
 import { setModalVisibleAction } from '../../../../../store/ui/actions';
 import store from '../../../../../store/store';
+// import { executeLogin } from '../../../../../store/features/login/actions';
 import '../../../../../core/services/interceptorsService';
 
 const MockMemberCloseLoginModal = () => {
@@ -24,6 +26,13 @@ const MockMemberOpenLoginModal = () => {
   )
 }
 
+async function postAuthLogin(username, password) {
+  const response = await axios.post('https://fakestoreapi.com/auth/login', {
+    username: username,
+    password: password
+  }).then(result => result.json())
+  return response
+}
 
 describe('MemberLoginModal', () => {
   beforeAll(() => {
@@ -57,10 +66,10 @@ describe('MemberLoginModal', () => {
     const submitBtn = screen.getByText('Submit')
     fireEvent.click(submitBtn)
     await waitFor(() => {
-      expect(screen.getByTestId('input-error-username')).toHaveTextContent(`username is a required field`)
+      expect(screen.getByLabelText('input-error-username')).toHaveTextContent(`username is a required field`)
     })
     await waitFor(() => {
-      expect(screen.getByTestId('input-error-password')).toHaveTextContent(`password is a required field`)
+      expect(screen.getByLabelText('input-error-password')).toHaveTextContent(`password is a required field`)
     })
   })
   /** 測試輸入 password 是否為加密 * */
@@ -80,7 +89,26 @@ describe('MemberLoginModal', () => {
     fireEvent.change(username, { target: { value: '123' } })
     fireEvent.click(submitBtn)
     await waitFor(() => {
-      expect(screen.getByTestId('input-error-password')).toHaveTextContent(`password is a required field`)
+      expect(screen.getByLabelText('input-error-password')).toHaveTextContent(`password is a required field`)
     })
+  })
+  /** 輸入匹配的帳號密碼情況 */
+  test('輸入匹配的帳號密碼情況', async () => {
+    render(<MockMemberOpenLoginModal />)
+    // const username = screen.getByLabelText('input-field-username')
+    // const password = screen.getByLabelText('input-field-password')
+    // fireEvent.change(username, { target: { value: 'mor_2314' } })
+    // fireEvent.change(password, { target: { value: '83r5^_' } })
+
+    // if (password.value && username.value) {}
+
+    // const submitBtn = screen.getByText('Submit')
+    // fireEvent.click(submitBtn)
+
+    // store.dispatch(executeLogin(username.value, password.value ))
+
+    // await waitFor(() => {
+    //   expect(screen.queryByLabelText('modal-memberLoginModal')).not.toHaveClass('modal--show show');
+    // })
   })
 })

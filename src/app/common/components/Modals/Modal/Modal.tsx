@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   return (
     <>
-      <div aria-label={`modal-${ModalNamesEnum.MemberLoginModal}`} className={'modal fade' + (props.className ? ` ${props.className}` : '') + (props.visible ? ' modal--show show' : '')} ref={modalElemRef} onClick={handleBackdropClick}>
+      <div aria-label={`modal-${props.name}`} className={'modal fade' + (props.className ? ` ${props.className}` : '') + (props.visible ? ' modal--show show' : '')} ref={modalElemRef} onClick={handleBackdropClick}>
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">

@@ -14,9 +14,10 @@ const InputTextField: React.FC<InputTextFieldProps> = ({ name, label, type, disa
           className="field__input-text"
           disabled={disabled}
           placeholder={placeholder}
+          aria-label={`input-field-${name}`}
         />
       </div>
-      <div className="field__error-message">{meta.error && meta.touched ? meta.error : ''}</div>
+      <div className="field__error-message" aria-label={`input-error-${name}`}>{meta.error && meta.touched ? meta.error : ''}</div>
     </div>
   )
 }
