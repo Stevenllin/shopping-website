@@ -38,23 +38,23 @@ describe('Product', () => {
     render(<Product key={categories[0]} category={categories[0]} />)
     const products = await fetchProductsCategory(categories[0])
     /** title */
-    const productTitle = screen.getByText(products[0].title.substring(0, 50))
+    // const productTitle = 
     /** 圖片 */
-    const productImageElement = screen.getByAltText(products[0].id)
+    // const productImageElement = screen.getByAltText(products[0].id)
     /** buttons */
-    const buttons = screen.getAllByRole('button');
+    // const buttons = screen.getAllByRole('button');
 
     /** 驗證圖片是否存在 */
-    await waitFor(() => {
-      expect(productImageElement).toBeInTheDocument()
+    await waitFor(async () => {
+      expect(await screen.findByAltText(products[0].id)).toBeInTheDocument()
     })
     /** 驗證 title 是否存在 */
-    await waitFor(() => {
-      expect(productTitle).toBeInTheDocument()
+    await waitFor(async () => {
+      expect(await screen.findByText(products[0].title.substring(0, 50))).toBeInTheDocument()
     })
     /** 驗證 button 數量是否正確 */
-    await waitFor(() => {
-      expect(buttons).toHaveLength(products.length)
+    await waitFor(async () => {
+      expect(await screen.findAllByRole('button')).toHaveLength(products.length)
     })
   })
 })

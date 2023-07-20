@@ -17,7 +17,7 @@ const Product: React.FC<ProductProps> = (props) => {
   useEffect(() => {
     (async() => {
       const response = await apiService.getProductsCategory(props.category);
-      if (response.length) setProducts(response);
+      if (response.length > 0) setProducts(response);
     })()
     
     return () => {
