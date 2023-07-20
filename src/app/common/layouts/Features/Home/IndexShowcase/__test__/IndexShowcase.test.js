@@ -1,9 +1,9 @@
-import axios from 'axios';
 import { screen, render, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import IndexShowcase from '../IndexShowcase';
 import store from '../../../../../../store/store';
 import { initFetchCommonDataDoneAction } from '../../../../../../store/common/actions';
+import apiService from '../../../../../../api/services/apiService';
 
 const MockIndexShowcase = (categories) => {
   store.dispatch(initFetchCommonDataDoneAction(categories.categories))
@@ -18,7 +18,7 @@ const MockIndexShowcase = (categories) => {
  * @description 取得所有類別
  */
 async function fetchAllCategories () {
-  const response = await axios.get('https://fakestoreapi.com/products/categories').then((response) => response.data)
+  const response = await apiService.getAllCategories()
   return response
 }
 

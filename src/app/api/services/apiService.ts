@@ -5,7 +5,7 @@ import { GetSingleProductResp } from '../models/get/getSingleProduct';
 import { PostAuthLoginReq, PostAuthLoginResp } from '../models/post/postAuthLogin';
 import { GetUsersResp } from '../models/get/getUsers';
 import { GetCartsUserResp } from '../models/get/getCartsUser';
-
+import '../../core/services/interceptorsService';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   /** 查詢所有商品 */

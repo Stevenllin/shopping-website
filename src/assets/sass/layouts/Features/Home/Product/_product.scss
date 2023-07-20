@@ -65,7 +65,6 @@
 
     .lds-box {
       height: 0px;
-      // background: linear-gradient(white, $color-main-light);
       animation: change 2s infinite;
       border-radius: 50px;
 
@@ -82,7 +81,7 @@
           background-color: white;
         }
         to {
-          background: radial-gradient($color-main-light, $color-main-normal);
+          background: radial-gradient($color-main-light, white);
         }
       }
     }
