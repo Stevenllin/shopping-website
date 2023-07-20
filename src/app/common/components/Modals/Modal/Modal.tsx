@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setModalVisibleAction } from '../../../../store/ui/actions';
-import { ModalNamesEnum } from '../../../../core/enums/ui/modals';
 import { ModalProps } from './types';
 
 const Modal: React.FC<ModalProps> = (props) => {
@@ -65,7 +64,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className={'modal-backdrop fade' + (props.visible ? ' modal-backdrop--show show' : '')} />
+      <div aria-label={`modal-${props.name}-backdrop`} className={'modal-backdrop fade' + (props.visible ? ' modal-backdrop--show show' : '')} />
     </>
   );
 };
