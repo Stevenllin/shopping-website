@@ -18,11 +18,11 @@ const Product: React.FC<ProductProps> = (props) => {
     (async() => {
       const response = await apiService.getProductsCategory(props.category);
       if (response.length) setProducts(response);
-      
-      return () => {
-        setProducts([])
-      }
     })()
+    
+    return () => {
+      setProducts([])
+    }
   }, [props.category])
 
   /**
@@ -50,13 +50,13 @@ const Product: React.FC<ProductProps> = (props) => {
             )
           }
           {
-            products.map((product) => (
-              <div aria-label={`product`} className="product" key={product.id}>
-                <img aria-label={`image`} src={product.image} alt={product.title} height={300} loading="lazy" onClick={() => handlePushToDetail(product.id)} />
+            products.length > 0 && products.map((product) => (
+              <div className="product" key={product.id}>
+                <img src={product.image} alt={product.id.toString()} height={300} loading="lazy" onClick={() => handlePushToDetail(product.id)} />
                 <p>{product.title.substring(0, 50)}</p>
                 <div className="d-flex justify-content-between align-items-center">
                   <p className="m-0">$ {Math.floor(product.price)}</p>
-                  <button type="button" aria-label={`cart-${product.id}-button`} className="button-main" onClick={() => commonService.handleAddProductToCart(product)}>Add to cart</button>
+                  <button type="button" className="button-main" onClick={() => commonService.handleAddProductToCart(product)}>Add to cart</button>
                 </div>
               </div>
             ))

@@ -1,7 +1,6 @@
 import Product from '../Product';
 import { screen, render, waitFor } from '@testing-library/react';
 import apiService from '../../../../../../api/services/apiService';
-import { act } from 'react-dom/test-utils';
 
 /**
  * @description 取得所有類別
@@ -38,15 +37,24 @@ describe('Product', () => {
   test('測試當類別中商品 Loading 完畢後，商品的顯示', async () => {
     render(<Product key={categories[0]} category={categories[0]} />)
     const products = await fetchProductsCategory(categories[0])
-    const productDivElements = screen.getAllByLabelText('product')
-    const productImageElements = screen.getAllByLabelText('image')
+    /** title */
+    const productTitle = screen.getByText(products[0].title.substring(0, 50))
+    /** 圖片 */
+    const productImageElement = screen.getByAltText(products[0].id)
+    /** buttons */
+    const buttons = screen.getAllByRole('button');
 
-    /** 驗證商品數量是否匹配 */
+    /** 驗證圖片是否存在 */
     await waitFor(() => {
-      expect(productDivElements).toHaveLength(products.length)
+      expect(productImageElement).toBeInTheDocument()
     })
+    /** 驗證 title 是否存在 */
     await waitFor(() => {
-      expect(productImageElements).toHaveLength(products.length)
+      expect(productTitle).toBeInTheDocument()
+    })
+    /** 驗證 button 數量是否正確 */
+    await waitFor(() => {
+      expect(buttons).toHaveLength(products.length)
     })
   })
 })
