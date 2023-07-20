@@ -30,7 +30,7 @@ describe('IndexShowcase', () => {
   test('測試取得 Categories 是否顯示於頁面上', async () => {
     const categories = await fetchAllCategories()
     render(<MockIndexShowcase categories={categories} />)
-    const li = screen.getAllByLabelText('category')
+    const li = screen.getAllByTestId('category')
     /** 驗證數量是否匹配 */
     await waitFor(() => {
       expect(li).toHaveLength(categories.length)
