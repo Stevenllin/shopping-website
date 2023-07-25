@@ -163,7 +163,7 @@ const ConfirmInfo: React.FC = () => {
                   {/** image */}
                   <img src={item.detail?.image} alt={item.detail?.title} />
                 </div>
-                <div className="col-6 p-4 d-flex flex-column justify-content-around">
+                <div className="col-6 px-3 d-flex flex-column justify-content-around">
                   {/** 商品名稱 */}
                   <h4>{item.detail?.title}</h4>
                   {/** 數量 */}
@@ -177,14 +177,14 @@ const ConfirmInfo: React.FC = () => {
                     </button>
                   </div>
                   {/** 價格 */}
-                  <p>$ {item.detail?.price}</p>
+                  <p>$ {Math.floor(item.detail?.price ?? 0)}</p>
                 </div>
               </div>
             ))
           }
         </section>
         <div className="d-flex justify-content-end">
-          <p>Total Price: {totalPrice}</p>
+          <p>Total Price: $ {Math.floor(totalPrice)}</p>
         </div>
         <div className="d-flex justify-content-center">
           <button type="button" className="button-main" onClick={handleGoToClause}>NEXT</button>
