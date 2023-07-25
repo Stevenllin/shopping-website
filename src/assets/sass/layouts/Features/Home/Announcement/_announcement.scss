@@ -1,0 +1,15 @@
+.announcement {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  margin-top: 72px;
+  width: 100%;
+  padding: 10px 16px;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #ffedd1;
+
+  p {
+    color: $color_minor_dark;
+  }
+}
