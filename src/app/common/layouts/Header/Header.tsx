@@ -78,7 +78,7 @@ const Header: React.FC = () => {
             {/** 登入 icons */}
             {
               authState === '' && (
-                <button type="button" className="me-3" aria-label="log-in-button">
+                <button type="button" className="me-3" data-testid="log-in-button">
                   <BsFillPersonFill className="icons-white icons-sm" onClick={handleOpenLoginModal} />
                 </button>
               )
@@ -86,19 +86,19 @@ const Header: React.FC = () => {
             {/** 登出 icons */}
             {
               authState !== '' && (
-                <button type="button" className="me-3" aria-label="log-out-button" onClick={commonService.handleExecuteLogout}>
+                <button type="button" className="me-3" data-testid="log-out-button" onClick={commonService.handleExecuteLogout}>
                   <AiOutlineLogout className="icons-white icons-sm" />
                 </button>
               )
             }
             {/** 購物車 icons */}
-            <button type="button" aria-label="cart-button" onClick={handleGoToPayProccess}>
+            <button type="button" data-testid="cart-button" onClick={handleGoToPayProccess}>
               <PiShoppingCartSimpleBold className="icons-white icons-sm" />
             </button>
             {/** 購物車數量 */}
             {
               authState !== '' && (
-                <div className="header-cart" aria-label="cart-number">
+                <div className="header-cart" data-testid="cart-number">
                   <span>{productsCount}</span>
                 </div>
               )

@@ -45,8 +45,8 @@ describe('Header', () => {
   /** 測試未登入下 Header 情況 */
   test('測試未登入下 Header 情況', async () => {
     render(<MockHeaderLogout />)
-    const login = screen.getByLabelText('log-in-button')
-    const cart = screen.getByLabelText('cart-button')
+    const login = screen.getByTestId('log-in-button')
+    const cart = screen.getByTestId('cart-button')
     await waitFor(() => {
       expect(login).toBeInTheDocument()
     })
@@ -57,8 +57,8 @@ describe('Header', () => {
   /** 測試已登入下 Header 情況 */
   test('測試已登入下 Header 情況', async () => {
     render(<MockHeaderLogin />)
-    const logout = screen.getByLabelText('log-out-button')
-    const cart = screen.getByLabelText('cart-button')
+    const logout = screen.getByTestId('log-out-button')
+    const cart = screen.getByTestId('cart-button')
     await waitFor(() => {
       expect(logout).toBeInTheDocument()
     })
@@ -69,7 +69,7 @@ describe('Header', () => {
     const products = await fetchProductsCartUser()
     /** 加總購物車中的商品數量 */
     const counts = products.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0)
-    const cartNumber = screen.getByLabelText('cart-number')
+    const cartNumber = screen.getByTestId('cart-number')
     /** 驗證數量是否正確 */
     await waitFor(() => {
       expect(cartNumber).toBeInTheDocument(counts)
